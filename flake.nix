@@ -17,10 +17,24 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.flake-parts.follows = "flake-parts";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    yazi-plugins = {
+      url = "github:yazi-rs/plugins";
+      flake = false;
+    };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   # Wired using https://nixos-unified.org/autowiring.html
   outputs = inputs:
     inputs.nixos-unified.lib.mkFlake
-      { inherit inputs; root = ./.; };
+    {
+      inherit inputs;
+      root = ./.;
+    };
 }
