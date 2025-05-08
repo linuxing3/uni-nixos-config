@@ -1,15 +1,18 @@
 # See /modules/nixos/* for actual settings
 # This file is just *top-level* configuration.
-{ flake, ... }:
-
-let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
-in
-{
+in {
   imports = [
     self.nixosModules.default
-    self.nixosModules.gui
+    self.nixosModules.system
+    self.nixosModules.wayland
+    self.nixosModules.xserver
+    self.nixosModules.pipewire
+    self.nixosModules.security
+    self.nixosModules.services
+    self.nixosModules.program
     ./configuration.nix
   ];
 }

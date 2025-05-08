@@ -1,5 +1,4 @@
 {
-  username,
   pkgs,
   inputs,
   ...
@@ -14,7 +13,7 @@
   security.sudo.enable = true;
   security.sudo.extraRules = [
     {
-      users = ["${username}"];
+      users = ["linuxing3"];
       commands = [
         {
           command = "ALL";
@@ -25,7 +24,7 @@
   ];
 
   # Enable automatic login for the user.
-  services.getty.autologinUser = "${username}";
+  services.getty.autologinUser = "linuxing3";
   environment.systemPackages = with pkgs; [
     pass
     pass-wayland
@@ -40,22 +39,22 @@
 
   sops.defaultSopsFile = ./secrets/password.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/linuxing3/.config/sops/age/keys.txt";
 
   #  general password
   sops.secrets.github = {
-    owner = "${username}";
+    owner = "linuxing3";
   };
   # github token
   sops.secrets.password = {
-    owner = "${username}";
+    owner = "linuxing3";
   };
   # qq email password
   sops.secrets."email/qq" = {
-    owner = "${username}";
+    owner = "linuxing3";
   };
   # mfa email password
   sops.secrets."email/mfa" = {
-    owner = "${username}";
+    owner = "linuxing3";
   };
 }
