@@ -16,7 +16,7 @@ let
   };
   # the path to nvim directory
   # to make this symlink work, we need to git clone this repo to your home directory.
-  configPath = "${config.home.homeDirectory}/sources/mir-nixos-config/modules/home/neovim/nvim";
+  configPath = "${config.home.homeDirectory}/sources/uni-nixos-config/modules/home/neovim/nvim";
 in {
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
 

@@ -168,7 +168,7 @@ in {
     # gnumake
 
     # Node.js
-    nodejs_23
+    nodejs
 
     # Rust
     rustc

@@ -13,7 +13,7 @@
         line-number = "relative";
         mouse = true;
         middle-click-paste = true;
-        cursorline = false;
+        cursorline = true;
         cursorcolumn = false;
         cursor-shape = {
           insert = "bar";
@@ -67,7 +67,7 @@
 
         "C-," = ["normal_mode" "move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "select_mode"];
         "C-." = ["normal_mode" "move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries"];
-        "C-/" = ["normal_mode" "move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "global_search"];
+        "C-/" = ["normal_mode" "move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "select_mode" "global_search"];
 
         "S-A-up" = ["move_visual_line_up" "extend_line_below" "delete_selection" "paste_after" "collapse_selection" "move_visual_line_up"];
         "S-A-down" = ["extend_line_below" "delete_selection" "paste_after" "collapse_selection"];
@@ -156,7 +156,7 @@
 
         "C-," = ["move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "select_mode"];
         "C-." = ["move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries"];
-        "C-/" = ["move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "global_search"];
+        "C-/" = ["move_prev_word_start" "move_next_word_end" "search_selection_detect_word_boundaries" "select_mode" "global_search"];
 
         "$" = ["split_selection_on_newline" "insert_at_line_end" "normal_mode"];
         "0" = ["split_selection_on_newline" "insert_at_line_start" "normal_mode"];

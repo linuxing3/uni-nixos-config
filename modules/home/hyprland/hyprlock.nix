@@ -33,7 +33,6 @@ in {
       font_family = Fira Mono Bold
       shadow_passes = 3
       position = 0, -25
-    }
       halign = center
       valign = top
     }
@@ -47,7 +46,6 @@ in {
       font_family = Fira Mono
       shadow_passes = 3
       position = 0, -225
-    }
       halign = center
       valign = top
     }
@@ -62,9 +60,7 @@ in {
       border_size = 0
       border_color = rgba(255, 255, 255, 0)
       rotate = 0
-
       position = 0, 120
-    }
       halign = center
       valign = bottom
     }
@@ -77,7 +73,6 @@ in {
       font_size = 15
       font_family = Fira Mono Bold
       position = 0, 131
-    }
       halign = center
       valign = bottom
     }
@@ -101,7 +96,6 @@ in {
       placeholder_text = <i><span foreground="##fbf1c7">Enter Password</span></i>
       hide_input = false
       position = 0, 50
-    }
       halign = center
       valign = bottom
     }

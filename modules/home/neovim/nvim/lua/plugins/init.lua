@@ -5,6 +5,14 @@ return {
         opts = require "configs.conform",
     },
 
+    {
+        "mirlge/kak.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "kak".setup({})
+        end,
+    },
+
     -- These are some examples, uncomment them if you want to see them work!
     {
         "neovim/nvim-lspconfig",
