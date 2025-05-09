@@ -2,10 +2,7 @@
   pkgs,
   flake,
   ...
-}: let
-  inherit (flake) inputs;
-  inherit (inputs) self;
-in {
+}: {
   # imports = [ inputs.nix-gaming.nixosModules.default ];
   # fonts and inputs
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -37,7 +34,7 @@ in {
   };
   nixpkgs = {
     overlays = [
-      self.nur.overlays.default
+      flake.inputs.nur.overlays.default
 
       # inputs.nixpkgs-wayland.overlay
 

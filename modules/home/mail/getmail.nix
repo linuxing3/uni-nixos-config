@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  inputs,
-  username,
-  ...
-}: let
+{config, ...}: let
   accountConfig = ''
     [retriever]
     type = SimplePOP3SSLRetriever
@@ -18,7 +12,7 @@
 
     [destination]
     type = Maildir
-    path = /home/${username}/Mail/mfa/Inbox/
+    path = /home/${config.me.username}/Mail/mfa/Inbox/
 
     [options]
     delete = false
@@ -32,7 +26,7 @@ in {
         primary = false;
         address = "xing_wenju@mfa.gov.cn";
         userName = "xing_wenju@mfa.gov.cn";
-        realName = "Xing Wenju";
+        realName = "${config.me.fullname}";
         passwordCommand = "cat /run/secrets/email/mfa";
         imap.host = "mail.mfa.gov.cn";
         imap.tls.useStartTls = true;

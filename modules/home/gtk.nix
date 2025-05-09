@@ -3,10 +3,6 @@
   config,
   ...
 }: let
-  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix {};
-  monolisa-nerd = pkgs.callPackage ../../pkgs/monolisa/monolisa-nerd.nix {
-    inherit monolisa;
-  };
 in {
   fonts.fontconfig.enable = true;
 
@@ -32,43 +28,6 @@ in {
     terminus_font
     twemoji-color-font
     fantasque-sans-mono
-    maple-mono
-    # monolisa
-    # monolisa-nerd
+    # maple-mono
   ];
-
-  gtk = {
-    enable = true;
-    font = {
-      name = "Maple Mono";
-      size = 14;
-    };
-    theme = {
-      name = "Colloid-Green-Dark-Gruvbox";
-      package = pkgs.colloid-gtk-theme.override {
-        colorVariants = ["dark"];
-        themeVariants = ["green"];
-        tweaks = [
-          "gruvbox"
-          "rimless"
-          "float"
-        ];
-      };
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override {color = "black";};
-    };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
-  };
-
-  home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
-    size = 24;
-  };
 }

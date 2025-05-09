@@ -1,6 +1,6 @@
 {
   pkgs,
-  username,
+  config,
   ...
 }: {
   services = {
@@ -11,7 +11,7 @@
 
     displayManager.autoLogin = {
       enable = true;
-      user = "${username}";
+      user = "linuxing3";
     };
     libinput = {
       enable = true;

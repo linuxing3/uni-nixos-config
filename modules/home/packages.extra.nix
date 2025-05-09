@@ -1,10 +1,8 @@
 {
-  inputs,
+  flake,
   pkgs,
   ...
 }: let
-  _2048 = pkgs.callPackage ../../pkgs/2048/default.nix {};
-  zigup = pkgs.callPackage ../../pkgs/zigup/default.nix {};
   tile = pkgs.writeShellScriptBin "tile" ''
     cmd=$(which tmux)
     session=workspace
@@ -29,10 +27,7 @@ in {
     ".git/safe/../../bin"
   ];
   home.packages = with pkgs; [
-    # _2048
-    #
     tile
-    zigup
 
     just
 
@@ -181,13 +176,13 @@ in {
     cargo-binstall
 
     # Zig
-    # inputs.zig.packages.${system}.master
-    # zls
+    zig
+    zls
 
     # Python
     python3
     python312Packages.ipython
 
-    inputs.alejandra.defaultPackage.${system}
+    alejandra
   ];
 }

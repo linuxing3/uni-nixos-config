@@ -6,7 +6,11 @@
 in {
   imports = with self.nixosModules; [
     default
+    system
     security
+    wayland
+    xserver
+    program
     ./configuration.nix
   ];
 }

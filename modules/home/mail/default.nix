@@ -1,11 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  host,
-  username,
-  ...
-}: let
+{config, ...}: let
 in {
   imports = [./getmail.nix];
   programs.neomutt = {
@@ -24,8 +17,8 @@ in {
     accounts = {
       qq = {
         primary = true;
-        address = "linuxing3@qq.com";
-        userName = "linuxing3";
+        address = "${config.me.username}@qq.com";
+        userName = "${config.me.username}";
         realName = "Xing Wenju";
         passwordCommand = "cat /run/secrets/email/qq";
         imap.port = 993;

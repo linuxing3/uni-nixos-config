@@ -1,21 +1,16 @@
 {
-  inputs,
+  flake,
   pkgs,
-  host,
   ...
 }: let
-  ghostty = inputs.ghostty.packages.x86_64-linux.default;
+  ghostty = flake.inputs.ghostty.packages.x86_64-linux.default;
 in {
   home.packages = with pkgs; [ghostty];
 
   xdg.configFile."ghostty/config".text = ''
     # Font
     font-family = "Maple Mono"
-    font-size = ${
-      if (host == "laptop")
-      then "12"
-      else "14"
-    }
+    font-size = 12
     font-thicken = true
     font-feature = ss01
     font-feature = ss04

@@ -1,14 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdb";
@@ -47,42 +49,26 @@
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = lib.mkDefault "us";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.linuxing3 = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-     ];
-  };
 
   environment.systemPackages = with pkgs; [
-     wget curl
-     helix   neovim vim emacs
-     tmux
-     yazi	lf     ranger
-     git     lazygit
-     dosfstools
-     exfat
-     nfs-utils
-     btrfs-progs
-     btrfs-snap
+    wget
+    curl
+    helix
+    neovim
+    vim
+    emacs
+    tmux
+    yazi
+    lf
+    ranger
+    git
+    lazygit
+    dosfstools
+    exfat
+    nfs-utils
+    btrfs-progs
+    btrfs-snap
   ];
-
-  programs.dconf.enable = true;
-  programs.zsh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    # pinentryFlavor = "";
-  };
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [];
 
   services.autofs = {
     enable = true;
@@ -97,9 +83,5 @@
     '';
   };
 
-  services.openssh.enable = true;
-
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
-

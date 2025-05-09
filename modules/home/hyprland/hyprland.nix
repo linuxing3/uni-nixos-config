@@ -1,8 +1,10 @@
 {
-  inputs,
+  flake,
   pkgs,
   ...
-}: {
+}: let
+  inherit (flake) inputs;
+in {
   home.packages = with pkgs; [
     swww
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast

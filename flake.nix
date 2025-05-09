@@ -18,7 +18,11 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.flake-parts.follows = "flake-parts";
 
+    nur.url = "github:nix-community/NUR";
     hyprland.url = "github:hyprwm/Hyprland";
+    hypr-contrib.url = "github:hyprwm/contrib";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     yazi-plugins = {
       url = "github:yazi-rs/plugins";

@@ -1,13 +1,13 @@
 {
-  inputs,
+  flake,
   pkgs,
   ...
 }: {
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+    package = flake.inputs.hyprland.packages.${pkgs.system}.default;
     portalPackage =
-      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+      flake.inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
   xdg.portal = {
     enable = true;
