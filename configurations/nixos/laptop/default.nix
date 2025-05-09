@@ -7,10 +7,13 @@ in {
   imports = with self.nixosModules; [
     default
     system
+    services
+    pipewire
     security
     wayland
     xserver
     program
+    nh
     ./configuration.nix
   ];
 }

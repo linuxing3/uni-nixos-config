@@ -1,8 +1,4 @@
-{
-  pkgs,
-  host,
-  ...
-}: let
+{pkgs, ...}: let
   text = "rgb(251, 241, 199)";
 in {
   home.packages = [pkgs.hyprlock];
@@ -34,12 +30,9 @@ in {
       text = cmd[update:1000] echo "$(date +"%k:%M")"
       color = rgba(235, 219, 178, .9)
       font_size = 115
-      font_family = Maple Mono Bold
+      font_family = Fira Mono Bold
       shadow_passes = 3
-      position = 0, ${
-      if (host == "laptop")
-      then "-25"
-      else "-150"
+      position = 0, -25
     }
       halign = center
       valign = top
@@ -51,12 +44,9 @@ in {
       text = cmd[update:1000] echo "- $(date +"%A, %B %d") -"
       color = rgba(235, 219, 178, .9)
       font_size = 18
-      font_family = Maple Mono
+      font_family = Fira Mono
       shadow_passes = 3
-      position = 0, ${
-      if (host == "laptop")
-      then "-225"
-      else "-350"
+      position = 0, -225
     }
       halign = center
       valign = top
@@ -73,10 +63,7 @@ in {
       border_color = rgba(255, 255, 255, 0)
       rotate = 0
 
-      position = 0, ${
-      if (host == "laptop")
-      then "120"
-      else "270"
+      position = 0, 120
     }
       halign = center
       valign = bottom
@@ -88,11 +75,8 @@ in {
       text =   $USER
       color = rgba(235, 219, 178, 1)
       font_size = 15
-      font_family = Maple Mono Bold
-      position = 0, ${
-      if (host == "laptop")
-      then "131"
-      else "281"
+      font_family = Fira Mono Bold
+      position = 0, 131
     }
       halign = center
       valign = bottom
@@ -112,14 +96,11 @@ in {
       color = rgba(235, 219, 178, .9)
       font_color = rgba(235, 219, 178, .9)
       font_size = 14
-      font_family = Maple Mono Bold
+      font_family = Fira Mono Bold
       fade_on_empty = false
       placeholder_text = <i><span foreground="##fbf1c7">Enter Password</span></i>
       hide_input = false
-      position = 0, ${
-      if (host == "laptop")
-      then "50"
-      else "200"
+      position = 0, 50
     }
       halign = center
       valign = bottom

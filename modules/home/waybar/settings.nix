@@ -3,7 +3,7 @@
   ...
 }: let
   custom = {
-    font = "Maple Mono";
+    font = "Fira Mono";
     font_size = "12px";
     font_weight = "bold";
     text_color = "#FBF1C7";

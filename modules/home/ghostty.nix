@@ -9,7 +9,7 @@ in {
 
   xdg.configFile."ghostty/config".text = ''
     # Font
-    font-family = "Maple Mono"
+    font-family = "Fira Mono"
     font-size = 12
     font-thicken = true
     font-feature = ss01
@@ -89,7 +89,7 @@ in {
       main = {
         term = "xterm-256color";
 
-        font = "Maple Mono:size=14";
+        font = "Fira Mono:size=14";
         dpi-aware = "yes";
       };
 

@@ -50,38 +50,5 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = with pkgs; [
-    wget
-    curl
-    helix
-    neovim
-    vim
-    emacs
-    tmux
-    yazi
-    lf
-    ranger
-    git
-    lazygit
-    dosfstools
-    exfat
-    nfs-utils
-    btrfs-progs
-    btrfs-snap
-  ];
-
-  services.autofs = {
-    enable = true;
-    autoMaster = let
-      mapConf = pkgs.writeText "autofs.mnt" ''
-        windows -fstype=ntfs :/dev/disk/by-uuid/CAA069BBA069AF1F
-        app -fstype=ntfs :/dev/disk/by-uuid/283698C136989204
-        data -fstype=ntfs :/dev/disk/by-uuid/2286A96C86A94161
-      '';
-    in ''
-      /autofs ${mapConf} --timeout 20
-    '';
-  };
-
   system.stateVersion = "24.11"; # Did you read the comment?
 }
