@@ -6,6 +6,9 @@
 in {
   imports = with self.nixosModules; [
     default
+    bootloader
+    hardware
+    network
     system
     services
     pipewire
