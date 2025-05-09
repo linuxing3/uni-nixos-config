@@ -34,7 +34,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  # Wired using https://nixos-unified.org/autowiring.html
   outputs = inputs:
     inputs.nixos-unified.lib.mkFlake
     {

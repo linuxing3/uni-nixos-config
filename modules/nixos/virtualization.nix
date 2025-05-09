@@ -1,11 +1,10 @@
 {
   config,
   pkgs,
-  username,
   ...
 }: {
   # Add user to libvirtd group
-  users.users.${username}.extraGroups = ["libvirtd"];
+  users.users.linuxing3.extraGroups = ["libvirtd"];
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [

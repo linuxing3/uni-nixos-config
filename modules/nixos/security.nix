@@ -44,6 +44,9 @@ in {
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/linuxing3/.config/sops/age/keys.txt";
 
+  sops.secrets.username = {
+    owner = "linuxing3";
+  };
   #  general password
   sops.secrets.github = {
     owner = "linuxing3";

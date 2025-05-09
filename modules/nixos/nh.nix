@@ -1,15 +1,11 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   programs.nh = {
     enable = true;
     clean = {
       enable = true;
       extraArgs = "--keep-since 7d --keep 5";
     };
-    flake = "/home/${username}/sources/mir-nixos-config";
+    flake = "/home/linuxing3/sources/mir-nixos-config";
   };
 
   environment.systemPackages = with pkgs; [
