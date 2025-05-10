@@ -89,7 +89,8 @@ in {
       main = {
         term = "xterm-256color";
 
-        font = "Fira Mono:size=14";
+        font = "JetBrainsMono:size=14";
+        font-monospace-warn = "no";
         dpi-aware = "yes";
       };
 
