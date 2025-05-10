@@ -16,6 +16,7 @@
     keybinds clear-defaults=true {
         locked {
             bind "Ctrl g" { SwitchToMode "normal"; }
+            bind "Ctrl i" { Run "zellij" "--new-session-with-layout" "~/w.kdl" { direction "Right"; };}
         }
         pane {
             bind "left" { MoveFocus "left"; }
@@ -132,7 +133,7 @@
                 }
                 SwitchToMode "normal"
             }
-            bind "w" {
+            bind "i" {
                 LaunchOrFocusPlugin "session-manager" {
                     floating true
                     move_to_focused_tab true
@@ -160,6 +161,7 @@
             bind "Ctrl /" { Run "nh" "os" "switch" { direction "Down"; };}
             bind "Ctrl e" { Run "hx" "." { direction "Right"; };}
             bind "Ctrl p" { Run "yazi" { direction "Right"; };}
+            bind "Ctrl i" { Run "lazygit" { direction "Right"; };}
         }
         shared_except "locked" "move" {
             bind "Ctrl h" { SwitchToMode "move"; }

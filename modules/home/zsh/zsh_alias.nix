@@ -31,8 +31,8 @@
       tree = "eza --icons --tree --group-directories-first";
 
       # Nixos
-      cdnix = "cd ~/sources/mir-nixos-config && codium ~/sources/mir-nixos-config";
-      conf = "cd ~/sources/mir-nixos-config && y";
+      cdnix = "cd ~/sources/uni-nixos-config && hx .";
+      conf = "cd ~/sources/uni-nixos-config && y";
       ns = "nom-shell --run zsh";
       nd = "nom develop --command zsh";
       nb = "nom build";
