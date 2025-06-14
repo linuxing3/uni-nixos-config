@@ -2,9 +2,9 @@
   networking = {
     hostName = "laptop";
     networkmanager.enable = true;
-    interfaces.eno1.ipv4.addresses = [
+    interfaces.enp0s31f6.ipv4.addresses = [
       {
-        address = "10.10.30.21";
+        address = "10.10.30.110";
         prefixLength = 24;
       }
     ];

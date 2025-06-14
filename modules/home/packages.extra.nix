@@ -139,10 +139,20 @@ in {
     tty-clock # cli clock
 
     ## GUI Apps
+    vscode-fhs
+    vscode-langservers-extracted
+    copilot-language-server-fhs
+
+    vsc-leetcode-cli
+
+    zed-editor-fhs
+
+    qutebrowser-qt5
+
     # audacity
     bleachbit # cache cleaner
     telegram-desktop
-    # filezilla
+    filezilla
     # gimp
     gnome-disk-utility
     # ldtk # 2D level editor
@@ -158,9 +168,11 @@ in {
     soundwireserver
     # thunderbird
     vlc
-    # winetricks
-    # wineWowPackages.wayland
-    # zenity
+
+    wine-wayland
+    winetricks
+    wineWowPackages.wayland
+    zenity
 
     # C / C++
     gcc
@@ -169,6 +181,7 @@ in {
 
     # Node.js
     nodejs
+    deno
 
     # Rust
     rustc

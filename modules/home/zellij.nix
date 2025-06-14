@@ -16,7 +16,6 @@
     keybinds clear-defaults=true {
         locked {
             bind "Ctrl g" { SwitchToMode "normal"; }
-            bind "Ctrl i" { Run "zellij" "--new-session-with-layout" "~/w.kdl" { direction "Right"; };}
         }
         pane {
             bind "left" { MoveFocus "left"; }

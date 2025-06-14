@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdb";
+  boot.loader.grub.device = "/dev/sdc";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.extraEntries = ''
     menuentry "NixOS on sda6" --class nixos --unrestricted {

@@ -17,6 +17,7 @@ in {
     xserver
     program
     nh
+    emacs
     ./configuration.nix
   ];
 }
