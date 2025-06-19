@@ -7,20 +7,31 @@
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
+        # network manager
         "nm-applet &"
+        # power manager
         "poweralertd &"
+        # clipboard
         "wl-clip-persist --clipboard both &"
         "wl-paste --watch cliphist store &"
+        # bar
         "waybar &"
         "swaync &"
+        # cursor shape
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
+        # message system
         "swww-daemon &"
 
+        # lock
         "hyprlock"
 
+        # chinese input
         "fcitx -d -r"
         "fcitx-remote -r"
+
+        # editor daemon
         "emacs --daemon"
+        # terminal daemon
         "foot -s"
       ];
 
@@ -163,6 +174,7 @@
         "$mainMod, N, exec, swaync-client -t -sw"
         "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
+        "$mainMod SHIFT, K, exec, hyprctl kill"
         "$mainMod SHIFT, B, exec, toggle_waybar"
         "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
         "$mainMod SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
