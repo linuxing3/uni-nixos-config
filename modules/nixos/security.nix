@@ -38,6 +38,8 @@ in {
 
     sops
     age
+
+    cryptsetup
   ];
 
   sops.defaultSopsFile = ./secrets/password.yaml;

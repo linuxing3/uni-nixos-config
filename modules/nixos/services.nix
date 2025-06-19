@@ -21,13 +21,16 @@
     HandlePowerKey=ignore
   '';
 
-  environment.systemPackages = [
-    pkgs.dosfstools
-    pkgs.exfat
-    pkgs.nfs-utils
-    pkgs.btrfs-progs
-    pkgs.btrfs-snap
+  environment.systemPackages = with pkgs; [
+    dosfstools
+    exfat
+    nfs-utils
+    btrfs-progs
+    btrfs-snap
+    # for hp printer
+    hplip
   ];
+
   services.autofs = {
     enable = true;
     autoMaster = let
