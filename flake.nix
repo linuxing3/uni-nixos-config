@@ -1,4 +1,4 @@
- {
+{
   description = "A home-manager template providing useful tools & settings for Nix-based development";
 
   inputs = {
@@ -10,6 +10,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-unified.url = "github:srid/nixos-unified";
+
+    # system inputs
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Software inputs
     nix-index-database.url = "github:nix-community/nix-index-database";
