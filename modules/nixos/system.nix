@@ -38,10 +38,10 @@
 
       # inputs.nixpkgs-wayland.overlay
 
-      (import (builtins.fetchTarball {
-        url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-        sha256 = "0d9f082m4lfcmgcn461avhymk90pfgprp1ckwpgvck91npy0xvk9";
-      }))
+      # (import (builtins.fetchTarball {
+      #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      #   sha256 = "0d9f082m4lfcmgcn461avhymk90pfgprp1ckwpgvck91npy0xvk9";
+      # }))
     ];
   };
 

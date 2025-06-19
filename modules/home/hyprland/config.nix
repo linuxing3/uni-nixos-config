@@ -146,35 +146,41 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, Return, exec, kitty zellij"
-        "ALT, Return, exec, [float; size 1111 700] footclient zellij"
-        "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen'"
-        "$mainMod, Q, killactive,"
-        "$mainMod, F, fullscreen, 0"
-        "$mainMod SHIFT, F, fullscreen, 1"
-        "$mainMod, Space, exec, toggle_float"
+        # menu
         "$mainMod, D, exec, rofi -show drun || pkill rofi"
-        "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-        "$mainMod, Escape, exec, swaylock"
-        "ALT, Escape, exec, hyprlock"
-        "$mainMod SHIFT, Escape, exec, power-menu"
-        "$mainMod, P, pseudo,"
-        "$mainMod, X, togglesplit,"
-        "$mainMod, T, exec, toggle_oppacity"
-        "$mainMod, E, exec, nemo"
-        "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
-        "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; size 1111 700] ghostty -e yazi'"
-        "$mainMod SHIFT, B, exec, toggle_waybar"
+        # terminals
+        "$mainMod, Return, exec, [float; size 1111 700] footclient zellij"
+        "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"
+        "$ALT, Return, exec, kitty zellij"
+        # web browser
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen'"
+        # file browser
+        "$mainMod, E, exec, hyprctl dispatch exec '[float; size 1111 700] footclient yazi'"
+        "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
+        # other app
         "$mainMod, C ,exec, hyprpicker -a"
         "$mainMod, W,exec, wallpaper-picker"
-        "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
         "$mainMod, N, exec, swaync-client -t -sw"
-        "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
-        "$mainMod, equal, exec, woomer"
+        "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
+        "$mainMod SHIFT, B, exec, toggle_waybar"
+        "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
+        "$mainMod SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
         # "$mainMod SHIFT, W, exec, vm-start"
-
+        "$mainMod, equal, exec, woomer"
+        # behavior
+        "$mainMod, Space, exec, toggle_float"
+        "$mainMod, F, fullscreen, 0"
+        "$mainMod SHIFT, F, fullscreen, 1"
+        "$mainMod, P, pseudo,"
+        "$mainMod, T, exec, toggle_oppacity"
+        "$mainMod, X, togglesplit,"
+        "$mainMod, Q, killactive,"
+        # lock
+        "$mainMod, Escape, exec, swaylock"
+        "ALT, Escape, exec, hyprlock"
+        # power
+        "$mainMod SHIFT, Escape, exec, power-menu"
         # screenshot
         ",Print, exec, screenshot --copy"
         "$mainMod, Print, exec, screenshot --save"

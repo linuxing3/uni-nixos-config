@@ -143,8 +143,6 @@ in {
     vscode-langservers-extracted
     copilot-language-server-fhs
 
-    vsc-leetcode-cli
-
     zed-editor-fhs
 
     qutebrowser-qt5

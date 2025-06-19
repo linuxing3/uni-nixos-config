@@ -1,4 +1,4 @@
-{
+ {
   description = "A home-manager template providing useful tools & settings for Nix-based development";
 
   inputs = {

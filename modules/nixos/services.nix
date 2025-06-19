@@ -45,17 +45,35 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
-    dataDir = "/var/lib/postgresql/15"; # Custom data directory
+    dataDir = "/var/lib/postgresql/15";
+    port = 5432;
+    enableTCPIP = true;
+    ensureDatabases = ["myapp_dev"];
+    ensureUsers = [
+      {
+        name = "postgres";
+      }
+    ];
     authentication = pkgs.lib.mkOverride 10 ''
-      # Custom pg_hba.conf content
-      local all all trust
-      host all all 127.0.0.1/32 trust
+      #type database DBuser origin-address auth-method
+      local all      all                    trust
+      host  all      all     localhost      trust
+      host  all      all     127.0.0.1/32   trust
+      host  all      all     ::1/128        trust
+      host  all      all     laptop         scram-sha-256
     '';
     initialScript = pkgs.writeText "postgresql-init.sql" ''
       CREATE USER postgres WITH PASSWORD 'mm909623';
-      CREATE USER linuxing3 WITH PASSWORD 'mm909623';
       CREATE DATABASE myapp_dev WITH OWNER postgres;
+      GRANT ALL PRIVILEGES ON DATABASE myapp_dev TO postgres;
+
+      CREATE USER linuxing3 WITH PASSWORD 'mm909623';
       CREATE DATABASE mydb_dev WITH OWNER linuxing3;
+      GRANT ALL PRIVILEGES ON DATABASE mydb_dev TO linuxing3;
+
+      CREATE ROLE nixcloud WITH LOGIN PASSWORD 'nixcloud' CREATEDB;
+      CREATE DATABASE nixcloud WITH OWNER nixcloud;
+      GRANT ALL PRIVILEGES ON DATABASE nixcloud TO nixcloud;
     '';
   };
 }

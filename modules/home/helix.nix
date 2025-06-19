@@ -102,7 +102,7 @@
         };
 
         "C-p" = {
-          a = [":cd ~/sources/mir-nixos-config"];
+          a = [":cd ~/sources/uni-nixos-config"];
           i = [":cd ~/sources/linuxing3-nixos-config"];
           b = [":cd ~/sources/nixpkgs"];
           c = [":cd ~/sources/home-manager"];

@@ -9,8 +9,8 @@ in {
 
   xdg.configFile."ghostty/config".text = ''
     # Font
-    font-family = "Fira Mono"
-    font-size = 12
+    font-family = "FiraCode Nerd Font"
+    font-size = 14
     font-thicken = true
     font-feature = ss01
     font-feature = ss04
