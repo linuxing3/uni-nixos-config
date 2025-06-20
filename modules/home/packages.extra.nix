@@ -175,6 +175,7 @@ in {
     # C / C++
     gcc
     gdb
+    clang
     # gnumake
 
     # Node.js
@@ -185,6 +186,7 @@ in {
     rustc
     cargo
     cargo-binstall
+    lldb
 
     # Zig
     zig

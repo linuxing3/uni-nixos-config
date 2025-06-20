@@ -308,5 +308,7 @@
 
     attach_to_session true
 
+    show_startup_tips false
+
   '';
 }

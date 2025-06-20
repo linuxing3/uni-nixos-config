@@ -4,6 +4,24 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       marksman
+      markdown-oxide
+      markdownlint-cli
+
+      helix-gpt
+      # dot-dot-language-server
+      # jq-lsp
+      # bash-language-server
+      # protobuf
+      # svelte-language-server
+      # wgsl-analyzer
+      # nimlangserver
+      # ruff
+      # superhtml
+      # vue-language-server
+      # dockerfile-language-server-nodejs
+      # cmake-language-server
+      # texlab
+      # lua-language-server
     ];
 
     # User settings
@@ -195,7 +213,7 @@
             "package.json"
           ];
           auto-format = true;
-          language-servers = ["deno-lsp"];
+          language-servers = ["deno-lsp" "gpt"];
         }
         # javascript
         {
@@ -206,7 +224,7 @@
             "package.json"
           ];
           auto-format = true;
-          language-servers = ["deno-lsp"];
+          language-servers = ["deno-lsp" "gpt"];
         }
         # java
         {
@@ -223,7 +241,7 @@
             "build.gradle"
             "build.gradle.kts"
           ];
-          language-servers = ["jdtls"];
+          language-servers = ["jdtls" "gpt"];
           indent = {
             tab-width = 2;
             unit = "  ";
@@ -263,7 +281,7 @@
             "///"
             "//!"
           ];
-          language-servers = ["zls"];
+          language-servers = ["zls" "gpt"];
           indent = {
             tab-width = 2;
             unit = "  ";
@@ -295,6 +313,7 @@
           language-servers = [
             "nil"
             "nixd"
+            "gpt"
           ];
           indent = {
             tab-width = 2;
@@ -371,6 +390,10 @@
 
       # language-server
       language-server = {
+        # deno
+        gpt = {
+          command = "helix-gpt";
+        };
         # deno
         deno-lsp = {
           command = "deno";

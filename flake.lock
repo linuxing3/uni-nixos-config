@@ -692,10 +692,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1750423341,
-        "narHash": "sha256-/4MJIouekwxjK5d0jbWrSrjILxq7dGjWX5fZ0mtQii4=",
+        "lastModified": 1750433755,
+        "narHash": "sha256-KSS+kgBQ/+9X7wCmz2sRMARcMIoF7rs6SeDlLOqLjHM=",
         "ref": "refs/heads/main",
-        "rev": "6977527c7f9edf14f313762a83184e1350cc48d5",
+        "rev": "9e3943b0c41a67b5ed487a47f51c4bbb78ffd153",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/linuxing3/mysecrets.git"

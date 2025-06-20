@@ -7,6 +7,15 @@
   inherit (inputs) mysecrets;
   user_access = {
     owner = "linuxing3";
+    mode = "0500";
+  };
+  root_access = {
+    owner = "root";
+    mode = "0500";
+  };
+  no_access = {
+    owner = "root";
+    mode = "0000";
   };
 in {
   imports = [
