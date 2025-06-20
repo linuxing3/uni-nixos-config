@@ -5,6 +5,7 @@
 }: let
   inherit (flake) inputs;
   inherit (inputs) mysecrets;
+  inherit (inputs) agenix;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -39,26 +40,31 @@ in {
 
     sops
     age
+    agenix-cli
 
     cryptsetup
-    agenix
   ];
 
   # age secrets
-  age.IdentityPaths = [
-    "${mysecrets}/public/romantic.pub"
-    "${mysecrets}/public/efwmc.pub"
+  # secrets path: /run/agenix/...
+  age.identityPaths = [
+    "/home/linuxing3/.ssh/id_ed25519"
+    "/home/linuxing3/.ssh/efwmc"
+    "/home/linuxing3/.ssh/linuxing3"
+    "/home/linuxing3/.ssh/ssh_host_ed25519_key"
+    "/etc/ssh/ssh_host_ed25519_key"
   ];
 
   age.secrets."generic" = {
-    file = "${mysecrets}/nix-generic-pass.age";
+    file = "${mysecrets}/nix-access-tokens.age";
   };
 
   # sops secrets
   sops.defaultSopsFile = "${mysecrets}/password.yaml";
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "${mysecrets}/age/keys.txt";
+  sops.age.keyFile = "/home/linuxing3/.config/sops/age/keys.txt";
 
+  # secrets path: /run/secrets/...
   sops.secrets.username = {
     owner = "linuxing3";
   };

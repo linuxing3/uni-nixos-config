@@ -35,11 +35,17 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
 
-    agenix.url = "github:ryantm/agenix";
-    mysecrets.url = "git+ssh://git@github.com/linuxing3/mysecrets.git?shallow=1";
-    mysecrets.flake = false;
+    # secrets management
+    sops-nix.url = "github:Mic92/sops-nix";
+    agenix = {
+      url = "github:ryantm/agenix/4835b1dc898959d8547a871ef484930675cb47f1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mysecrets = {
+      url = "git+ssh://git@github.com/linuxing3/mysecrets.git?shallow=1";
+      flake = false;
+    };
   };
 
   outputs = inputs:
