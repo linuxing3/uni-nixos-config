@@ -36,6 +36,10 @@
       url = "github:ghostty-org/ghostty";
     };
     sops-nix.url = "github:Mic92/sops-nix";
+
+    agenix.url = "github:ryantm/agenix";
+    mysecrets.url = "git+ssh://git@github.com/linuxing3/mysecrets.git?shallow=1";
+    mysecrets.flake = false;
   };
 
   outputs = inputs:

@@ -4,10 +4,11 @@
   ...
 }: let
   inherit (flake) inputs;
-  inherit (inputs) self;
+  inherit (inputs) mysecrets;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
+    inputs.agenix.nixosModules.default
   ];
   security.rtkit.enable = true;
   security.pam.services.swaylock = {};
@@ -40,11 +41,23 @@ in {
     age
 
     cryptsetup
+    agenix
   ];
 
-  sops.defaultSopsFile = ./secrets/password.yaml;
+  # age secrets
+  age.IdentityPaths = [
+    "${mysecrets}/public/romantic.pub"
+    "${mysecrets}/public/efwmc.pub"
+  ];
+
+  age.secrets."generic" = {
+    file = "${mysecrets}/nix-generic-pass.age";
+  };
+
+  # sops secrets
+  sops.defaultSopsFile = "${mysecrets}/password.yaml";
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/linuxing3/.config/sops/age/keys.txt";
+  sops.age.keyFile = "${mysecrets}/age/keys.txt";
 
   sops.secrets.username = {
     owner = "linuxing3";
