@@ -5,7 +5,9 @@
 }: let
   inherit (flake) inputs;
   inherit (inputs) mysecrets;
-  inherit (inputs) agenix;
+  user_access = {
+    owner = "linuxing3";
+  };
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -57,6 +59,17 @@ in {
 
   age.secrets."generic" = {
     file = "${mysecrets}/nix-access-tokens.age";
+    owner = "linuxing3";
+  };
+
+  age.secrets."username" = {
+    file = "${mysecrets}/username.age";
+    owner = "linuxing3";
+  };
+
+  age.secrets."fullname" = {
+    file = "${mysecrets}/fullname.age";
+    owner = "linuxing3";
   };
 
   # sops secrets
@@ -65,23 +78,13 @@ in {
   sops.age.keyFile = "/home/linuxing3/.config/sops/age/keys.txt";
 
   # secrets path: /run/secrets/...
-  sops.secrets.username = {
-    owner = "linuxing3";
-  };
+  sops.secrets.username = user_access;
   #  general password
-  sops.secrets.github = {
-    owner = "linuxing3";
-  };
+  sops.secrets.github = user_access;
   # github token
-  sops.secrets.password = {
-    owner = "linuxing3";
-  };
+  sops.secrets.password = user_access;
   # qq email password
-  sops.secrets."email/qq" = {
-    owner = "linuxing3";
-  };
+  sops.secrets."email/qq" = user_access;
   # mfa email password
-  sops.secrets."email/mfa" = {
-    owner = "linuxing3";
-  };
+  sops.secrets."email/mfa" = user_access;
 }
