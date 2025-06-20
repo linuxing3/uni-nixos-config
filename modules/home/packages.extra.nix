@@ -173,10 +173,9 @@ in {
     zenity
 
     # C / C++
-    gcc
-    gdb
     clang
-    # gnumake
+    clang-tools
+    lldb
 
     # Node.js
     nodejs
@@ -186,7 +185,6 @@ in {
     rustc
     cargo
     cargo-binstall
-    lldb
 
     # Zig
     zig
