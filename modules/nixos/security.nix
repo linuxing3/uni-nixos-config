@@ -81,6 +81,11 @@ in {
     owner = "linuxing3";
   };
 
+  age.secrets."cachix-auth-token" = {
+    file = "${mysecrets}/cachix-auth-token.age";
+    owner = "linuxing3";
+  };
+
   # sops secrets
   sops.defaultSopsFile = "${mysecrets}/password.yaml";
   sops.defaultSopsFormat = "yaml";
