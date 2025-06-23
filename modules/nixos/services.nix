@@ -39,6 +39,7 @@
         app -fstype=ntfs :/dev/disk/by-uuid/9ED80960D8093853
         data -fstype=ntfs :/dev/disk/by-uuid/8A7CFD4C7CFD3393
         win10 -fstype=ntfs :/dev/disk/by-uuid/D250B5C050B5AC1B
+        boot -fstype=vfat :/dev/disk/by-uuid/66F6-957D
       '';
     in ''
       /autofs ${mapConf} --timeout 20

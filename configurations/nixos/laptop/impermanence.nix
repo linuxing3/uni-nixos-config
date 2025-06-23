@@ -46,7 +46,7 @@ in {
         "tui-journal"
       ];
       files = [
-        ".git-credentials"
+        #".git-credentials"
       ];
     };
   };
