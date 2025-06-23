@@ -6,16 +6,12 @@
 in {
   imports = with self.nixosModules; [
     default
+    bootloader
     hardware
     system
     services
     pipewire
     security
-    wayland
-    xserver
-    program
-    nh
-    emacs
     ./bootloader.nix
     ./network.nix
     ./configuration.nix

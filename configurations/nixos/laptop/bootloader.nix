@@ -25,6 +25,7 @@
       bypassWorkqueues = true;
     };
   };
+
   boot.supportedFilesystems = [
     "ext4"
     "btrfs"
