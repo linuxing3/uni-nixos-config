@@ -1,18 +1,4 @@
-# Nix Environment Setup for Host: Idols - Ai
-
-> :red_circle: **IMPORTANT**: **Once again, you should NOT deploy this flake directly on your
-> machine :exclamation: Please write your own configuration from scratch, and use my configuration
-> and documentation for reference only.**
-
-This flake prepares a Nix environment for setting my desktop [/hosts/idols_ai](/hosts/idols_ai/)(in
-main flake) up on a new machine.
-
-Other docs:
-
-- README for [/hosts/12kingdoms_shoukei](/hosts/12kingdoms_shoukei):
-  [./README.shoukei.md](./README.shoukei.md)
-
-TODOs:
+# Nix Environment Setup
 
 - [ ] declarative disk partitioning with [disko](https://github.com/nix-community/disko)
 
