@@ -19,5 +19,6 @@ in {
     nh
     emacs
     ./configuration.nix
+    ../impermanence.nix
   ];
 }

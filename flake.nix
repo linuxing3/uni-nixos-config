@@ -14,6 +14,7 @@
     # system inputs
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
 
     # Software inputs
     nix-index-database.url = "github:nix-community/nix-index-database";
