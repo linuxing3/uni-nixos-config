@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sdb";
+  boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.splashImage = ./121956-ship-004.xpm.gz;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.extraEntries = ''

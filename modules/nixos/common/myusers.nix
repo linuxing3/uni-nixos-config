@@ -13,6 +13,8 @@
         value = f name;
       })
       m);
+  initialHashedPassword = "$7$CU..../....qejXlflvte/eOFsclGcRG0$vPxrUfc8MZh/9VY1py86B8GVs516vrQcScjvN/YEs5B";
+  mainSshAuthorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOm5HPR9bV+g/kWwDLzBCgCIija6GnHseUEthM+vX40l linuxing3@qq.com"];
 in {
   options = {
     myusers = lib.mkOption {
@@ -31,18 +33,37 @@ in {
 
   config = {
     # For home-manager to work.
-    # https://github.com/nix-community/home-manager/issues/4026#issuecomment-1565487545
-    users.users = mapListToAttrs config.myusers (
-      name:
-        lib.optionalAttrs pkgs.stdenv.isDarwin
-        {
-          home = "/Users/${name}";
-        }
-        // lib.optionalAttrs pkgs.stdenv.isLinux {
-          isNormalUser = true;
-          shell = pkgs.zsh;
-        }
-    );
+    users.users =
+      mapListToAttrs config.myusers (
+        name:
+          lib.optionalAttrs pkgs.stdenv.isDarwin
+          {
+            home = "/Users/${name}";
+          }
+          // lib.optionalAttrs pkgs.stdenv.isLinux {
+            isNormalUser = true;
+            shell = pkgs.zsh;
+            initialHashedPassword = initialHashedPassword;
+            openssh.authorizedKeys.keys = mainSshAuthorizedKeys;
+            extraGroups = [
+              name
+              "users"
+              "networkmanager"
+              "wheel"
+              "docker"
+              "wireshark"
+              "adbusers"
+              "libvirtd"
+            ];
+          }
+      )
+      // {
+        root = {
+          # root's ssh key are mainly used for remote deployment
+          initialHashedPassword = initialHashedPassword;
+          openssh.authorizedKeys.keys = mainSshAuthorizedKeys;
+        };
+      };
 
     # Enable home-manager for our user
     home-manager.users = mapListToAttrs config.myusers (name: {

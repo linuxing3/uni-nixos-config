@@ -46,6 +46,7 @@
     device = "/dev/disk/by-uuid/1820d0dd-925c-4d03-b0fc-92e6d99523ca";
     fsType = "btrfs";
     options = ["subvol=@persistent"];
+    neededForBoot = true;
   };
 
   fileSystems."/snapshots" = {

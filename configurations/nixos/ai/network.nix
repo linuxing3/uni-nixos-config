@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   networking = {
-    hostName = "laptop";
+    hostName = "ai";
     networkmanager.enable = true;
     interfaces.enp0s31f6.ipv4.addresses = [
       {
