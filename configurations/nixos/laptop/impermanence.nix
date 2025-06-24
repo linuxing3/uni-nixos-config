@@ -42,6 +42,7 @@ in {
     users.linuxing3 = {
       directories = [
         "OneDrive"
+        "Vault"
         "Mail"
         "tui-journal"
       ];
