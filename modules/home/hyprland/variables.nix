@@ -34,8 +34,6 @@
     "noproxy" = "export HTTPS_PROXY=;export HTTP_PROXY=";
     xh = "hyprctl reload";
     xn = "nh os switch";
-    nr = "nix run";
-    nb = "nix build";
     j = "just";
     jr = "just run";
     jb = "just build";
