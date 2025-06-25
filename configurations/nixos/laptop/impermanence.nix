@@ -22,8 +22,23 @@ in {
     # to hide them from the file manager
     hideMounts = true;
     directories = [
+      "/etc/NetworkManager/system-connections"
+      "/etc/ssh"
+      "/etc/nix/inputs"
+      "/etc/secureboot" # lanzaboote - secure boot
+      # my secrets
+      "/etc/agenix/"
+
+      "/var/log"
+      "/var/lib"
+
+      # created by modules/nixos/misc/fhs-fonts.nix
+      # for flatpak apps
+      # "/usr/share/fonts"
+      # "/usr/share/icons"
     ];
     files = [
+      "/etc/machine-id"
     ];
 
     # the following directories will be passed to /persistent/home/$USER
@@ -34,6 +49,7 @@ in {
         "tui-journal"
         "tmp"
         "soucres/mysecrets"
+        "Pictures/wallpapers"
 
         "go"
 
