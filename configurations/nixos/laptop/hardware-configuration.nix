@@ -28,7 +28,7 @@
   #   fsType = "ext4";
   # };
 
-  # roooooot
+  # FIXME: roooooot
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
     fsType = "btrfs";
