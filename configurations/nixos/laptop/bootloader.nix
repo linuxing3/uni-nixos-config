@@ -44,7 +44,7 @@
     };
     postDeviceCommands = ''
       mkdir -p /run/rooooot
-      mount -o subvol==@root /dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b /run/rooooot
+      mount -o subvol==@root /dev/mapper/crypted-nixos /run/rooooot
       btrfs subvolume delete /run/rooooot
       btrfs subvolume snapshot / /run/rooooot
     '';
