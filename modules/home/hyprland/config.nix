@@ -159,6 +159,7 @@
         # keybindings
         # menu
         "$mainMod, D, exec, rofi -show drun || pkill rofi"
+        "$ALT, Space, exec, anyrun"
         # terminals
         "$mainMod, Return, exec, [float; size 1111 700] footclient zellij"
         "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"

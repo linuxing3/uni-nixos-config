@@ -14,6 +14,8 @@ in {
     wayland
     xserver
     program
+    fhs
+    guix
     nh
     emacs
     ./bootloader.nix
