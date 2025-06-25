@@ -48,7 +48,7 @@ in {
         "org"
         "tui-journal"
         "tmp"
-        "soucres/mysecrets"
+        "sources/mysecrets"
         "Pictures/wallpapers"
 
         "go"
