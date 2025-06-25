@@ -38,7 +38,7 @@ in {
       # "/usr/share/icons"
     ];
     files = [
-      "/etc/machine-id"
+      # "/etc/machine-id"
     ];
 
     # the following directories will be passed to /persistent/home/$USER

@@ -28,6 +28,7 @@
     GRIMBLAST_HIDE_CURSOR = 0;
     EDITOR = "hx";
     VISUAL = "hx";
+    LF_BOOKMARK_PATH = "~/OneDrive/lf_bookmark";
   };
   home.shellAliases = {
     "..." = "cd ../..";

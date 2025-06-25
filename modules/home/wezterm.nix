@@ -4,7 +4,7 @@
     enableZshIntegration = true;
     extraConfig = ''
       return {
-        font = wezterm.font("JetBrains Mono"),
+        font = wezterm.font("JetBrainsMono Nerd Font"),
         font_size = 16.0,
         color_scheme = "Tomorrow Night",
         hide_tab_bar_if_only_one_tab = true,
