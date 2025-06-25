@@ -26,13 +26,16 @@
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Colloid-Green-Dark-Gruvbox";
     GRIMBLAST_HIDE_CURSOR = 0;
+    EDITOR = "hx";
+    VISUAL = "hx";
   };
   home.shellAliases = {
     "..." = "cd ../..";
     "noproxy" = "export HTTPS_PROXY=;export HTTP_PROXY=";
-    xp = "kitty tmuxp load ~/.config/tmux/dev.yml";
     xh = "hyprctl reload";
     xn = "nh os switch";
+    nr = "nix run";
+    nb = "nix build";
     j = "just";
     jr = "just run";
     jb = "just build";
