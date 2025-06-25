@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -17,17 +16,23 @@
   boot.kernelModules = [];
   boot.extraModulePackages = [];
 
-  # last partition as boot
+  # last partition as boot, device = "/dev/sdb2";
   fileSystems."/boot" = {
-    # device = "/dev/sdb2";
     device = "/dev/disk/by-uuid/66F6-957D";
     fsType = "vfat";
   };
 
   # first partition ext4 as root
+  # fileSystems."/" = {
+  #   device = "/dev/disk/by-uuid/361434b5-c39b-4bf0-9fc0-956e8a4e5f5b";
+  #   fsType = "ext4";
+  # };
+
+  # roooooot
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/361434b5-c39b-4bf0-9fc0-956e8a4e5f5b";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
+    fsType = "btrfs";
+    options = ["subvol=@root" "rw"];
   };
 
   # swap file instead of a particular swapswapDevices

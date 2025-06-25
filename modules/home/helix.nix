@@ -62,7 +62,7 @@
         F1 = [":format" ":w!"];
         F2 = ["rename_symbol" ":w!"];
         F3 = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
-        F4 = [":new" ":insert-output lf" ":buffer-close!" ":redraw"];
+        F4 = [":new" ":insert-output lf-pick" "split_selection_on_newline" "goto_file" ":buffer-close!" ":redraw"];
         F5 = [":pipe-to kitty just build"];
         F6 = [":pipe-to kitty just run"];
         F7 = ["dap_launch"];
@@ -96,7 +96,7 @@
         F1 = [":format" ":w!"];
         F2 = ["rename_symbol" ":w!"];
         F3 = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
-        F4 = [":new" ":insert-output lf" ":buffer-close!" ":redraw"];
+        F4 = [":new" ":insert-output lf-pick" "split_selection_on_newline" "goto_file" ":buffer-close!" ":redraw"];
         F5 = [":pipe-to kitty just build"];
         F6 = [":pipe-to kitty just run"];
         F7 = "dap_launch";

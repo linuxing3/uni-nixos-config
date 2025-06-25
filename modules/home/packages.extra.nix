@@ -17,6 +17,11 @@
     $cmd att -t $session
     exit 0
   '';
+  lfpick = pkgs.writeShellScriptBin "lfpick" ''
+    TEMP=$(mktemp)
+    lf --selection-path="$TEMP"
+    cat "$TEMP"
+  '';
 in {
   home.sessionPath = [
     "$HOME/.bin"
@@ -28,6 +33,7 @@ in {
   ];
   home.packages = with pkgs; [
     tile
+    lfpick
 
     just
 
