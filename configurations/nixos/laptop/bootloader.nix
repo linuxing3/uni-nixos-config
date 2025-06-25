@@ -42,12 +42,12 @@
       allowDiscards = true;
       bypassWorkqueues = true;
     };
-    postDeviceCommands = ''
-      mkdir -p /run/rooooot
-      mount -o subvol==@root /dev/mapper/crypted-nixos /run/rooooot
-      btrfs subvolume delete /run/rooooot
-      btrfs subvolume snapshot / /run/rooooot
-    '';
+    # postDeviceCommands = ''
+    #   mkdir -p /run/rooooot
+    #   mount -o subvol==@root /dev/mapper/crypted-nixos /run/rooooot
+    #   btrfs subvolume delete /run/rooooot
+    #   btrfs subvolume snapshot / /run/rooooot
+    # '';
   };
 
   boot.supportedFilesystems = [
