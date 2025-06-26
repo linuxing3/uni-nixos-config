@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.git = {
     enable = true;
 
-    userName = "linuxing3";
-    userEmail = "linuxing3@qq.com";
+    userName = "${config.me.username}";
+    userEmail = "${config.me.email}";
 
     extraConfig = {
       init.defaultBranch = "main";

@@ -63,21 +63,11 @@ in {
         }
 
         ".config/gh"
-
-        # ".config/zellij/layouts"
-        # ".config/zellij/theme"
-
-        # ".config/helix/icons"
-        # ".config/helix/actions"
-        # ".config/helix/scripts"
-        # ".config/helix/snippets"
-        # ".config/helix/tutors"
       ];
       files = [
         ".git-credentials"
         ".config/nushell/history.txt"
         ".config/sops/age/keys.txt"
-        ".config/lf/icons"
         ".Xdefaults"
         ".Xresources"
       ];

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [audacious];
   xdg.configFile."audacious/config".text = ''
     [audacious]
@@ -7,7 +11,7 @@
     soft_clipping=TRUE
 
     [audgui]
-    filesel_path=/home/linuxing3/Music
+    filesel_path=/home/${config.me.username}/Music
 
     [audqt]
     icon_theme=audacious-flat-dark
