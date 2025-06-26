@@ -1,9 +1,7 @@
 {config, ...}: let
   # path to your zellij config directory
-  helixPath = "/persistent/home/linuxing3/.config/helix";
+  zellijPath = "${config.me.configPath}/zellij";
 in {
-  xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink helixPath;
-
   programs = {
     zellij = {
       enable = true;
@@ -12,4 +10,5 @@ in {
       enableBashIntegration = true;
     };
   };
+  xdg.configFile."zellij".source = config.lib.file.mkOutOfStoreSymlink zellijPath;
 }

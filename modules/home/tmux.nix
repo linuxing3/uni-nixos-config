@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  # config,
+  ...
+}: let
+  # tmuxPath = "${config.me.configPath}/tmux";
+in {
+  # xdg.configFile."tmux".source = config.lib.file.mkOutOfStoreSymlink tmuxPath;
   programs.tmux = {
     enable = true;
     baseIndex = 1;

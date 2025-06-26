@@ -16,7 +16,7 @@ let
   };
   # the path to nvim directory
   # to make this symlink work, we need to git clone this repo to your home directory.
-  nvimPath = "/persistent/home/linuxing3/.config/nvim";
+  nvimPath = "${config.me.configPath}/nvim";
 in {
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimPath;
 

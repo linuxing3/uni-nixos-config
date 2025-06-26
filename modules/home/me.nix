@@ -1,6 +1,9 @@
 # User configuration module
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     me = {
       username = lib.mkOption {
@@ -14,6 +17,10 @@
       email = lib.mkOption {
         type = lib.types.str;
         description = "Your email for use in Git config";
+      };
+      configPath = lib.mkOption {
+        type = lib.types.str;
+        description = "Your configuration";
       };
     };
   };

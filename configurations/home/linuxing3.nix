@@ -12,6 +12,7 @@ in {
     username = "linuxing3";
     fullname = "Xing Wenju";
     email = "linuxing3@qq.com";
+    configPath = "/persistent/home/linuxing3/.config";
   };
 
   home.stateVersion = "24.11";
