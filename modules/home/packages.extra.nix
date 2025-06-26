@@ -151,7 +151,7 @@ in {
 
     zed-editor-fhs
 
-    qutebrowser-qt5
+    qutebrowser
 
     # audacity
     bleachbit # cache cleaner

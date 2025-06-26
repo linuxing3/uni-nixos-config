@@ -12,9 +12,13 @@ in {
         applications
         randr
         rink
+        kidex
         shell
+        stdin
         symbols
         translate
+        dictionary
+        websearch
       ];
 
       width.fraction = 0.3;
@@ -34,8 +38,8 @@ in {
 
       * {
         transition: 200ms ease;
-        font-family: "JetBrainsMono Nerd Font";
-        font-size: 1.3rem;
+        font-family: "FiraCode Nerd Font";
+        font-size: 1.1rem;
       }
 
       #window {

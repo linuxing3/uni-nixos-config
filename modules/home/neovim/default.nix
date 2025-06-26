@@ -16,9 +16,9 @@ let
   };
   # the path to nvim directory
   # to make this symlink work, we need to git clone this repo to your home directory.
-  configPath = "${config.home.homeDirectory}/sources/uni-nixos-config/modules/home/neovim/nvim";
+  nvimPath = "/persistent/home/linuxing3/.config/nvim";
 in {
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimPath;
 
   home.shellAliases = shellAliases;
   programs.nushell.shellAliases = shellAliases;

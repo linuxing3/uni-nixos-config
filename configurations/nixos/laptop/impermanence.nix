@@ -64,14 +64,14 @@ in {
 
         ".config/gh"
 
-        ".config/zellij/layouts"
-        ".config/zellij/theme"
+        # ".config/zellij/layouts"
+        # ".config/zellij/theme"
 
-        ".config/helix/icons"
-        ".config/helix/actions"
-        ".config/helix/scripts"
-        ".config/helix/snippets"
-        ".config/helix/tutors"
+        # ".config/helix/icons"
+        # ".config/helix/actions"
+        # ".config/helix/scripts"
+        # ".config/helix/snippets"
+        # ".config/helix/tutors"
       ];
       files = [
         ".git-credentials"
