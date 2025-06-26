@@ -68,6 +68,7 @@ in {
 
   age.secrets."generic" = {
     file = "${mysecrets}/nix-access-tokens.age";
+    path = "/etc/agenix";
     owner = "linuxing3";
   };
 

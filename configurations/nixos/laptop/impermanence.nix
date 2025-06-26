@@ -34,11 +34,11 @@ in {
 
       # created by modules/nixos/misc/fhs-fonts.nix
       # for flatpak apps
-      # "/usr/share/fonts"
-      # "/usr/share/icons"
+      "/usr/share/fonts"
+      "/usr/share/icons"
     ];
     files = [
-      # "/etc/machine-id"
+      "/etc/machine-id"
     ];
 
     # the following directories will be passed to /persistent/home/$USER
@@ -78,6 +78,8 @@ in {
         ".config/nushell/history.txt"
         ".config/sops/age/keys.txt"
         ".config/lf/icons"
+        ".xresources"
+        ".xdefaults"
       ];
     };
   };

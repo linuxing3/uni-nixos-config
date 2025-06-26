@@ -1,12 +1,14 @@
 {
   pkgs,
-  anyrun,
+  flake,
   ...
-}: {
+}: let
+  inherit (flake) inputs;
+in {
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with anyrun.packages.${pkgs.system}; [
+      plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
         randr
         rink
