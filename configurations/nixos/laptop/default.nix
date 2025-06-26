@@ -17,6 +17,7 @@ in {
     fhs
     guix
     nh
+    fonts
     emacs
     ./bootloader.nix
     ./network.nix

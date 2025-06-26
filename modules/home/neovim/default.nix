@@ -17,8 +17,10 @@ let
   # the path to nvim directory
   # to make this symlink work, we need to git clone this repo to your home directory.
   nvimPath = "${config.me.configPath}/nvim";
+  doomPath = "${config.me.configPath}/doom";
 in {
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimPath;
+  xdg.configFile."doom".source = config.lib.file.mkOutOfStoreSymlink doomPath;
 
   home.shellAliases = shellAliases;
   programs.nushell.shellAliases = shellAliases;

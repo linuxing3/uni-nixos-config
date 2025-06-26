@@ -7,16 +7,22 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
+      desktopManager.runXdgAutostartIfNone = true;
+      displayManager.gdm.enable = false;
     };
 
-    displayManager.autoLogin = {
+    greetd = {
       enable = true;
-      user = "linuxing3";
-    };
-    libinput = {
-      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.hyprland}/bin/Hyprland";
+          user = "linuxing3";
+        };
+        default_session = initial_session;
+      };
     };
   };
+
   # To prevent getting stuck at shutdown
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
   i18n.inputMethod = {
