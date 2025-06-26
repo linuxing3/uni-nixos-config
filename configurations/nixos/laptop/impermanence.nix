@@ -78,8 +78,8 @@ in {
         ".config/nushell/history.txt"
         ".config/sops/age/keys.txt"
         ".config/lf/icons"
-        ".xresources"
-        ".xdefaults"
+        ".Xdefaults"
+        ".Xresources"
       ];
     };
   };

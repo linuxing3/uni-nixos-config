@@ -164,12 +164,12 @@
             bind "Alt z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
             bind "Alt w" { CloseFocus; SwitchToMode "normal"; }
             bind "Alt q" { Quit; }
-            bind "Alt e" { Run "zsh" "-c" "hx" "." { direction "Right"; };}
-            bind "Alt y" { Run "zsh" "-c" "yazi" { direction "Right"; };}
-            bind "Alt t" { Run "zsh" "-c" "lazygit" { direction "Right"; };}
+            bind "Alt e" { Run "zsh" "-l" "-c" "hx" { direction "Right"; };}
+            bind "Alt y" { Run "zsh" "-l" "-c" "yazi" { direction "Right"; };}
+            bind "Alt t" { Run "zsh" "-l" "-c" "lazygit" { direction "Right"; };}
             bind "Alt r" { Run "just" "run" { direction "Down"; };}
             bind "Alt b" { Run "just" "build" { direction "Down"; };}
-            bind "Alt m" { Run "zsh" "-c" "neomutt" { direction "Down"; };}
+            bind "Alt m" { Run "zsh" "-l" "-c" "neomutt" { direction "Down"; };}
         }
         shared_except "locked" "move" {
             bind "Ctrl h" { SwitchToMode "move"; }

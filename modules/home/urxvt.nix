@@ -6,13 +6,15 @@
 }: {
   programs = {
     urxvt = {
-      enable = true;
+      enable = false;
       keybindings = {
         "Shift-Control-C" = "eval:selection_to_clipboard";
         "Shift-Control-V" = "eval:paste_clipboard";
       };
       fonts = [
-        "xft:FiraCode Nerd Font:size=18:antialias=true:style=Regular"
+        "xft:JetBrainsMono Nerd Font:size=14:antialias=true:style=Regular"
+        "xft:FiraCode Nerd Font:size=14:antialias=true:style=Regular"
+        "xft:WenQuanYi Micro Hei Mono:size=14:antialias=true:style=Regular"
       ];
       scroll = {
         bar = {

@@ -13,6 +13,10 @@
       enable = true;
 
       settings = {
+        shell = {
+          program = "zsh";
+          args = ["-l"];
+        };
         window.dimensions = {
           lines = 3;
           columns = 200;
