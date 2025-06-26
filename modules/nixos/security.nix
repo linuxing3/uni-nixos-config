@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   flake,
   ...
 }: let
@@ -85,10 +86,22 @@ in {
     file = "${mysecrets}/cachix-auth-token.age";
     owner = "linuxing3";
   };
-
   age.secrets."deepseek-token" = {
     file = "${mysecrets}/deepseek-token.age";
     owner = "linuxing3";
+  };
+  age.secrets."gemini-token" = {
+    file = "${mysecrets}/gemini-token.age";
+    owner = "linuxing3";
+  };
+
+  environment.sessionVariables = {
+    "DEEPSEEK_API_KEY" = ''
+      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."deepseek-token".path})
+    '';
+    "GEMINI_API_KEY" = ''
+      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."gemini-token".path})
+    '';
   };
 
   # sops secrets

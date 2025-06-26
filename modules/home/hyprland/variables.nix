@@ -29,7 +29,6 @@
     EDITOR = "hx";
     VISUAL = "hx";
     LF_BOOKMARK_PATH = "~/OneDrive/lf_bookmark";
-    DEEPSEEK_API_KEY = builtins.readFile "/run/agenix/deepseek-token";
   };
   home.shellAliases = {
     "..." = "cd ../..";

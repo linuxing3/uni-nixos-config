@@ -100,6 +100,9 @@
       zle -N my-backward-delete-word
       # bind this new widget to `ctrl+w`
       bindkey '^W' my-backward-delete-word
+
+      # global enable devbox
+      eval "$(devbox global shellenv --init-hook)"
     '';
   };
 }
