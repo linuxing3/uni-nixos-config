@@ -1,4 +1,3 @@
-# secrets
 # Secrets Management
 
 This document explains how to manage secrets in your NixOS configuration using both `agenix` and `sops-nix`.

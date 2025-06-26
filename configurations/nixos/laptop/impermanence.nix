@@ -49,7 +49,6 @@ in {
         "tui-journal"
         "tmp"
         "sources/mysecrets"
-        "Pictures/wallpapers"
 
         "go"
 
