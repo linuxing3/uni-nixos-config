@@ -86,6 +86,11 @@ in {
     owner = "linuxing3";
   };
 
+  age.secrets."deepseek-token" = {
+    file = "${mysecrets}/deepseek-token.age";
+    owner = "linuxing3";
+  };
+
   # sops secrets
   sops.defaultSopsFile = "${mysecrets}/password.yaml";
   sops.defaultSopsFormat = "yaml";
