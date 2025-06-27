@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   # Enable automatic login for the user.
   services.getty = {
+    # enable = false;
     autologinUser = "linuxing3";
   };
   # https://wiki.archlinux.org/title/KMSCON
