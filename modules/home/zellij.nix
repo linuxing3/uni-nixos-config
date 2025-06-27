@@ -8,7 +8,23 @@ in {
       enableZshIntegration = true;
       enableFishIntegration = true;
       enableBashIntegration = true;
+      settings = {
+        default_shell = "${pkgs.zsh}/bin/zsh";
+        default_mode = "locked";
+        pane_frames = false;
+        simplified_ui = true;
+        theme = "default";
+        keybinds = {
+          normal = {
+            unbind = ["Ctrl g"];
+          };
+        };
+      };
     };
+  };
+
+  home.sessionVariables = {
+    TERM = "xterm-256color";
   };
   xdg.configFile."zellij".source = config.lib.file.mkOutOfStoreSymlink zellijPath;
 }

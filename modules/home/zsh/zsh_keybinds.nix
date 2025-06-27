@@ -10,6 +10,10 @@
       # Use emacs key bindings
       bindkey -e
 
+      # Ensure proper backspace behavior
+      bindkey "^?" backward-delete-char
+      bindkey "^H" backward-delete-char
+
       WORDCHARS='~!#$%^&*(){}[]<>?.+;-'
 
       ""{back,for}ward-word() WORDCHARS=$MOTION_WORDCHARS zle .$WIDGET
