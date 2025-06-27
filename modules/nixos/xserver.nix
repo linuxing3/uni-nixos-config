@@ -7,8 +7,8 @@
     xserver = {
       enable = true;
       autorun = false;
-      layout = "us";
-      xkbOptions = "caps:escape_shifted_capslock";
+      xkb.layout = "us";
+      xkb.options = "caps:escape_shifted_capslock";
       desktopManager.runXdgAutostartIfNone = true;
       displayManager.gdm.enable = false;
       tty = 5;

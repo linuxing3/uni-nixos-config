@@ -14,6 +14,7 @@ in {
     wayland
     xserver
     program
+    console
     fhs
     guix
     nh

@@ -40,8 +40,6 @@ in {
     }
   ];
 
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "linuxing3";
   environment.systemPackages = with pkgs; [
     pass
     pass-wayland

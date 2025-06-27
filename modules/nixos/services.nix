@@ -50,7 +50,9 @@
     enable = true;
     package = pkgs.postgresql_15;
     dataDir = "/var/lib/postgresql/15";
-    port = 5432;
+    settings = {
+      port = 5432;
+    };
     enableTCPIP = true;
     ensureDatabases = ["myapp_dev"];
     ensureUsers = [
