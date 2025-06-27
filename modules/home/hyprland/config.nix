@@ -36,10 +36,8 @@
       ];
 
       input = {
-        kb_layout = "us,ru";
-        # kb_options = "grp:alt_caps_toggle";
-        # kb_options = "ctrl:swapescape";
-        kb_options = "ctrl:nocaps";
+        kb_layout = "us";
+        kb_options = "caps:escape_shifted_capslock";
         numlock_by_default = true;
         repeat_delay = 300;
         follow_mouse = 0;

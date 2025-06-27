@@ -59,7 +59,7 @@
         package = pkgs.source-code-pro;
       }
     ];
-    extraOptions = "--term xterm-256color";
+    extraOptions = "--term xterm-256color --xkb-variant caps:escape_shifted_capslock";
     extraConfig = "font-size=14";
     # Whether to use 3D hardware acceleration to render the console.
     hwRender = true;
