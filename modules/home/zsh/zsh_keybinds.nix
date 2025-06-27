@@ -8,11 +8,17 @@
   programs.zsh = {
     initContent = ''
       # Use emacs key bindings
+      # Set terminal type explicitly
+      if [[ "$TERM" == "linux" ]]; then
+        export TERM=xterm-256color
+      fi
+
       bindkey -e
 
       # Ensure proper backspace behavior
       bindkey "^?" backward-delete-char
       bindkey "^H" backward-delete-char
+      bindkey "^[[3~" delete-char  # Ensure delete key works
 
       WORDCHARS='~!#$%^&*(){}[]<>?.+;-'
 

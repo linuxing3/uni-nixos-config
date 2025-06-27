@@ -18,7 +18,7 @@
         package = pkgs.source-code-pro;
       }
     ];
-    extraOptions = "--term xterm-256color --xkb-options caps:escape_shifted_capslock --vt-term erase=^H";
+    extraOptions = "--term xterm-256color --xkb-options caps:escape_shifted_capslock --vt-term erase=^H --vt-term kbs=^H";
     extraConfig = "font-size=16";
     # Whether to use 3D hardware acceleration to render the console.
     hwRender = true;
