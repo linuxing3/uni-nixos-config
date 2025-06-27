@@ -6,9 +6,13 @@
   services = {
     xserver = {
       enable = true;
-      xkb.layout = "us";
+      autorun = false;
+      layout = "us";
+      xkbOptions = "caps:escape_shifted_capslock";
       desktopManager.runXdgAutostartIfNone = true;
       displayManager.gdm.enable = false;
+      tty = 5;
+      enableCtrlAltBackspace = true;
     };
 
     greetd = {
