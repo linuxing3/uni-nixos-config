@@ -48,6 +48,9 @@
 
       # nixvim
       vvv = "nix run github:fred-drake/neovim#";
+
+      # kmscon
+      kkk = "sudo pkill kmscon";
     };
   };
 }
