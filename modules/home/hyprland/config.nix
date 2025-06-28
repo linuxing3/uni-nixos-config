@@ -172,6 +172,7 @@
         "$mainMod, W,exec, wallpaper-picker"
         "$mainMod, N, exec, swaync-client -t -sw"
         "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod SHIFT, P, exec, kitty zsh -c ~/.local/bin/zellij-explorer"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod SHIFT, K, exec, hyprctl kill"
         "$mainMod SHIFT, B, exec, toggle_waybar"
