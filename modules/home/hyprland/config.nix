@@ -23,7 +23,7 @@
         "swww-daemon &"
 
         # lock
-        "hyprlock"
+        # "hyprlock"
 
         # chinese input
         "fcitx -d -r"
@@ -161,9 +161,10 @@
         # terminals
         "$mainMod, Return, exec, [float; size 1111 700] footclient zellij"
         "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"
+        "$mainMod SHIFT, P, exec, [fullscreen] ghostty --command='zsh -l -c ~/.local/bin/zellij-projects'"
         "$ALT, Return, exec, kitty zellij"
         # web browser
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen'"
+        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 2 silent] zen'"
         # file browser
         "$mainMod, E, exec, hyprctl dispatch exec '[float; size 1111 700] footclient yazi'"
         "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"

@@ -1,31 +1,6 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    alacritty-theme
-  ];
-
-  programs = {
-    alacritty = {
-      enable = true;
-
-      settings = {
-        window.dimensions = {
-          lines = 3;
-          columns = 200;
-        };
-
-        keyboard.bindings = [
-          {
-            key = "K";
-            mods = "Control";
-            chars = "\\u000c";
-          }
-        ];
-
-        font = {
-          normal.family = "JetBrainsMono Nerd Font";
-          bold.family = "JetBrainsMono Nerd Font";
-        };
-      };
-    };
-  };
+{config, ...}: let
+  alacrittyConfig = "${config.me.configPath}/alacritty";
+in {
+  xdg.configFile."alacritty".source = config.lib.file.mkOutOfStoreSymlink alacrittyConfig;
+  programs.alacritty = {enable = true;};
 }
