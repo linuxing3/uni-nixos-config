@@ -159,14 +159,15 @@
         "$mainMod, D, exec, rofi -show drun || pkill rofi"
         "$ALT, Space, exec, anyrun"
         # terminals
-        "$mainMod, Return, exec, [float; size 1111 700] footclient zellij"
+        "$mainMod, Return, exec, footclient"
+        "$ALT, Return, exec, kitty"
+        # ghostty
         "$mainMod SHIFT, Return, exec, [fullscreen] ghostty"
         "$mainMod SHIFT, P, exec, [fullscreen] ghostty --command='zsh -l -c ~/.local/bin/zellij-projects'"
-        "$ALT, Return, exec, kitty zellij"
         # web browser
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 2 silent] zen'"
         # file browser
-        "$mainMod, E, exec, hyprctl dispatch exec '[float; size 1111 700] footclient yazi'"
+        "$mainMod, E, exec, hyprctl dispatch exec 'footclient --title float-yazi yazi'"
         "$mainMod SHIFT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
         # other app
         "$mainMod, C ,exec, hyprpicker -a"
@@ -311,6 +312,7 @@
 
       # windowrule
       windowrule = [
+        "float, title: ^(float-footclient)$"
         "float, title: ^(Viewnior)$"
         "float, title: ^(imv)$"
         "float, title: ^(mpv)$"

@@ -5,12 +5,9 @@
     themeFile = "gruvbox-dark-hard";
 
     font = {
-      name = "Fira Mono";
-      size = 13;
+      name = "JetBrainsMono Nerd Font";
+      size = 14;
     };
-
-    extraConfig = ''
-    '';
 
     settings = {
       confirm_os_window_close = 0;

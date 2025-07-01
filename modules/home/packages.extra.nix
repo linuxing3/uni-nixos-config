@@ -27,8 +27,8 @@ in {
     "$HOME/.bin"
     "$HOME/.cargo/bin"
     "$HOME/.local/bin"
-    "$HOME/.local/share/bin"
     "$HOME/.config/emacs/bin"
+    "$HOME/.config/zide/bin"
     ".git/safe/../../bin"
   ];
   home.packages = with pkgs; [
@@ -36,14 +36,6 @@ in {
     lfpick
 
     just
-
-    fish
-    bash
-    nushell
-
-    foot
-    alacritty
-    wezterm
 
     ## CLI utility
     ani-cli
