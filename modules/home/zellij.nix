@@ -7,8 +7,6 @@ in {
     zellij = {
       enable = true;
       enableZshIntegration = true;
-      enableFishIntegration = true;
-      enableBashIntegration = true;
     };
   };
   home.sessionVariables = {

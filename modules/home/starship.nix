@@ -1,13 +1,6 @@
-{
-  lib,
-  inputs,
-  ...
-}: {
+{lib, ...}: {
   programs.starship = {
     enable = true;
-
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
 
     settings = {
       format = lib.concatStrings [

@@ -6,7 +6,6 @@
 }: let
   inherit (flake) inputs;
   ghosttyPath = "${config.me.configPath}/ghostty";
-  nushellPath = "${config.me.configPath}/nushell";
   footConfig = "${config.me.configPath}/foot";
   weztermConfig = "${config.me.configPath}/wezterm";
   alacrittyConfig = "${config.me.configPath}/alacritty";
@@ -23,7 +22,6 @@ in {
   };
 
   xdg.configFile."foot".source = config.lib.file.mkOutOfStoreSymlink footConfig;
-  xdg.configFile."nushell".source = config.lib.file.mkOutOfStoreSymlink nushellPath;
   xdg.configFile."wezterm".source = config.lib.file.mkOutOfStoreSymlink weztermConfig;
   xdg.configFile."alacritty".source = config.lib.file.mkOutOfStoreSymlink alacrittyConfig;
   xdg.configFile."tmux".source = config.lib.file.mkOutOfStoreSymlink tmuxConfig;
