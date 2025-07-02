@@ -32,19 +32,9 @@
   };
   home.shellAliases = {
     "..." = "cd ../..";
-    "noproxy" = "export HTTPS_PROXY=;export HTTP_PROXY=";
     xh = "hyprctl reload";
     xn = "nh os switch";
     j = "just";
-    jr = "just run";
-    jb = "just build";
-    st = "nix-shell -p xst.out --run xst > /dev/null 2>&1";
-    ec = "emacsclient -r -nw";
-    es = "emacs --daemon";
     zj = "zellij";
-    fz = "footclient zellij";
-    ft = "footclient tmux";
-    fy = "footclient yazi";
-    fl = "footclient lf";
   };
 }
