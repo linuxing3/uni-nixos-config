@@ -23,8 +23,9 @@
 
 # Ensure Janet development headers are available
 (def janet-dev-path (or (os/getenv "JANET_HEADERS_PATH")
-                        "/nix/store/*janet*/include"))
-(unless (os/dir? janet-dev-path)
+                        (let [store-path (first (glob "/nix/store/*janet*/include"))]
+                          (if store-path store-path "/usr/include/janet"))))
+(unless (and janet-dev-path (os/stat janet-dev-path))
   (eprint "ERROR: Janet development headers not found. Please install 'janet' package with:")
   (eprint "  nix-shell -p janet")
   (os/exit 1))
