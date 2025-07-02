@@ -21,7 +21,14 @@
 (def *heypath* (string (dyn :modpath) "/hey"))
 (def *heybuildpath* (string (dyn :tree) "/home/linuxing3/.local/share/janet/build"))
 
+# Ensure Janet development headers are available
+(def janet-dev-path (os/getenv "JANET_HEADERS_PATH"))
+(unless janet-dev-path
+  (eprint "ERROR: Janet development headers not found. Please install 'janet-dev' package.")
+  (os/exit 1))
+
 (os/setenv "JANET_BUILDPATH" *heybuildpath*)
+(os/setenv "CFLAGS" (string "-I" janet-dev-path " " (os/getenv "CFLAGS")))
 (os/mkdir *heybuildpath*)
 
 (task "deploy" ["uninstall" "clean"]
