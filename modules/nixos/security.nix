@@ -11,8 +11,7 @@
     lib.listToAttrs (map (name: {
         inherit name;
         value = f name;
-      })
-      m);
+      }) m);
   user_access = {
     owner = "linuxing3";
     mode = "0500";
