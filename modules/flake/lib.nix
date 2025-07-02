@@ -6,7 +6,7 @@
     ...
   }: let
     lib = import ../../lib {
-      inherit self';
+      inherit (inputs) self;
       inherit pkgs;
       inherit (inputs.nixpkgs) lib;
     };
@@ -14,7 +14,8 @@
     with builtins;
     with lib;
       mkFlake inputs {
+        systems = ["x86_64-linux"];
         inherit lib;
-        apps.install = mkApp ../../install.zsh;
+        # apps.install = mkApp ../../install.zsh;
       };
 }
