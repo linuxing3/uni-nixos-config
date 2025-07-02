@@ -19,7 +19,7 @@
  :install true)
 
 (def *heypath* (string (dyn :modpath) "/hey"))
-(def *heybuildpath* (string (dyn :tree) "/home/linuxing3/.local/share/janet/build"))
+(def *heybuildpath* (string (dyn :tree) "/build"))
 
 # Ensure Janet development headers are available
 (def janet-dev-path (or (os/getenv "JANET_HEADERS_PATH")

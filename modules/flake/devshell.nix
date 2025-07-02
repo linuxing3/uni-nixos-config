@@ -1,24 +1,34 @@
 {
-  perSystem = {pkgs, ...}: let
-    buildInputs = with pkgs; [
-      janet
-      janet.dev
-      glibc
-    ];
+  perSystem = {
+    pkgs,
+    config,
+    ...
+  }: let
   in {
     devShells.default =
       pkgs.mkShell
-      {
+      rec {
+        buildInputs = with pkgs; [
+          janet
+          glibc
+        ];
         name = "nixos-unified-template-shell";
         meta.description = "Shell environment for modifying this Nix configuration";
 
-        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+        LD_LIBRARY_PATH = "${pkgs.janet}/lib";
         INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
         C_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
         CXX_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
-        JANET_HEADERS_PATH = "${pkgs.janet.dev}/include";
-        JANET_TREE = "$HOME/.local/share/janet/jpm_tree";
-        JANET_PATH = "$JANET_TREE/lib";
+
+        JANET_HEADERS_PATH = "${pkgs.janet}/include";
+        JANET_TREE = "/home/linuxing3/.local/share/janet/jpm_tree";
+        JANET_PATH = "/home/linuxing3/.local/share/janet/jpm_tree/lib";
+        XDG_BIN_HOME = "/home/linuxing3/.local/bin";
+        XDG_CONFIG_HOME = "/home/linuxing3/.config";
+        XDG_DATA_HOME = "/home/linuxing3/.local/share";
+        XDG_CACHE_HOME = "/home/linuxing3/.local/cache";
+        XDG_STATE_HOME = "/home/linuxing3/.local/state";
+        DOTFILES_HOME = "/home/linuxing3/sources/uni-nixos-config";
         packages = with pkgs; [
           just
           nixd
