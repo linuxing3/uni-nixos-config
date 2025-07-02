@@ -7,27 +7,25 @@
 }: let
   inherit (flake) inputs;
   inherit (inputs) mysecrets;
-  mapListToAttrs = m: f:
+  # Create attribute set from list of .age files
+  mapListToAttrs = list: 
     lib.listToAttrs (map (name: {
-        inherit name;
-        value = f name;
-      }) m);
+      name = builtins.replaceStrings [".age"] [""] name;
+      value = { 
+        file = "${inputs.mysecrets}/${name}"; 
+        owner = "linuxing3"; 
+      };
+    }) (lib.filter (name: lib.hasSuffix ".age" name) list));
+
   user_access = {
     owner = "linuxing3";
     mode = "0500";
   };
-  root_access = {
-    owner = "root";
-    mode = "0500";
-  };
-  no_access = {
-    owner = "root";
-    mode = "0000";
-  };
-  dirContents = builtins.readDir "${inputs.mysecrets}";
-  fileNames = builtins.attrNames dirContents;
-  regularFiles = builtins.filter (name: dirContents.${name} == "regular") fileNames; # Filters for regular files
-  baseNames = map (name: builtins.replaceStrings [".age"] [""] name) regularFiles; # Removes .nix extension
+
+  # Get all .age files in secrets directory
+  ageFiles = lib.attrNames (lib.filterAttrs 
+    (name: type: type == "regular" && lib.hasSuffix ".age" name) 
+    (builtins.readDir "${inputs.mysecrets}"));
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -75,12 +73,7 @@ in {
     "/etc/ssh/ssh_host_ed25519_key"
   ];
 
-  age.secrets = mapListToAttrs baseNames (
-    name: {
-      file = "${mysecrets}/${name}.age";
-      owner = "linuxing3";
-    }
-  );
+  age.secrets = mapListToAttrs ageFiles;
   # age.secrets."generic" = {
   #   file = "${mysecrets}/nix-access-tokens.age";
   #   owner = "linuxing3";
