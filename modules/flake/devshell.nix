@@ -10,12 +10,11 @@
       rec {
         buildInputs = with pkgs; [
           janet
-          glibc
         ];
         name = "nixos-unified-template-shell";
         meta.description = "Shell environment for modifying this Nix configuration";
 
-        LD_LIBRARY_PATH = "${pkgs.janet}/lib";
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
         INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
         C_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
         CXX_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
@@ -23,6 +22,7 @@
         JANET_HEADERS_PATH = "${pkgs.janet}/include";
         JANET_TREE = "/home/linuxing3/.local/share/janet/jpm_tree";
         JANET_PATH = "/home/linuxing3/.local/share/janet/jpm_tree/lib";
+        JANET_BUILD_PATH = "/home/linuxing3/.local/share/janet/jpm_tree/build";
         XDG_BIN_HOME = "/home/linuxing3/.local/bin";
         XDG_CONFIG_HOME = "/home/linuxing3/.config";
         XDG_DATA_HOME = "/home/linuxing3/.local/share";

@@ -1,10 +1,10 @@
 (declare-project
  :name "hey"
- :author "Henrik Lissner <contact@henrik.io>"
+ :author "Xing Wenju<linuxing3@qq.com>"
  :description "A control center for my dotfiles"
  :license "MIT"
- :url "https://github.com/hlissner/dotfiles"
- :repo "git+https://github.com/hlissner/dotfiles"
+ :url "https://github.com/linuxing3/uni-nixos-config"
+ :repo "git+https://github.com/linuxing3/uni-nixos-config"
  :dependencies [
    {:url "https://github.com/andrewchambers/janet-posix-spawn.git"}
    {:url "https://github.com/andrewchambers/janet-sh.git"}
@@ -27,6 +27,8 @@
                           (if janet-path
                             (string janet-path "/include")
                             "/usr/include/janet"))))
+
+
 (unless (and janet-dev-path (os/stat janet-dev-path))
   (eprint "ERROR: Janet development headers not found. Please install 'janet' package with:")
   (eprint "  nix-shell -p janet")
@@ -45,6 +47,8 @@
   (when (or (not mode) (os/getenv "HEYBUILDDEPS"))
     (shell "jpm" "deps"))
   (shell "jpm" "install"
+         "--libpath="
+        (os/getenv "LD_LIBRARY_PATH")
          "--build-type=release"
          "--optimize=3"))
 

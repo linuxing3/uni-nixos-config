@@ -22,6 +22,12 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_BIN_HOME = "/home/linuxing3/.local/bin";
+    XDG_CONFIG_HOME = "/home/linuxing3/.config";
+    XDG_DATA_HOME = "/home/linuxing3/.local/share";
+    XDG_CACHE_HOME = "/home/linuxing3/.local/cache";
+    XDG_STATE_HOME = "/home/linuxing3/.local/state";
+    DOTFILES_HOME = "/home/linuxing3/sources/uni-nixos-config";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Colloid-Green-Dark-Gruvbox";
