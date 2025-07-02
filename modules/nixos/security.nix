@@ -7,24 +7,25 @@
 }: let
   inherit (flake) inputs;
   inherit (inputs) mysecrets;
-  # Create attribute set from list of .age files
-  mapListToAttrs = list: 
-    lib.listToAttrs (map (name: {
-      name = builtins.replaceStrings [".age"] [""] name;
-      value = { 
-        file = "${inputs.mysecrets}/${name}"; 
-        owner = "linuxing3"; 
-      };
-    }) (lib.filter (name: lib.hasSuffix ".age" name) list));
-
   user_access = {
     owner = "linuxing3";
     mode = "0500";
   };
 
+  # Create attribute set from list of .age files
+  mapListToAttrs = list:
+    lib.listToAttrs (map (name: {
+      name = builtins.replaceStrings [".age"] [""] name;
+      value = {
+        file = "${inputs.mysecrets}/${name}";
+        mode = user_access.mode;
+        owner = user_access.owner;
+      };
+    }) (lib.filter (name: lib.hasSuffix ".age" name) list));
+
   # Get all .age files in secrets directory
-  ageFiles = lib.attrNames (lib.filterAttrs 
-    (name: type: type == "regular" && lib.hasSuffix ".age" name) 
+  ageFiles = lib.attrNames (lib.filterAttrs
+    (name: type: type == "regular" && lib.hasSuffix ".age" name)
     (builtins.readDir "${inputs.mysecrets}"));
 in {
   imports = [
@@ -75,11 +76,14 @@ in {
 
   age.secrets = mapListToAttrs ageFiles;
 
-  # Example of how to add specific secrets if needed:
-  # age.secrets."specific-secret" = {
-  #   file = "${mysecrets}/specific-secret.age";
-  #   owner = "linuxing3";
-  # };
+  environment.sessionVariables = {
+    "DEEPSEEK_API_KEY" = ''
+      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."deepseek-token".path})
+    '';
+    "GEMINI_API_KEY" = ''
+      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."gemini-token".path})
+    '';
+  };
 
   # sops secrets
   sops.defaultSopsFile = "${mysecrets}/password.yaml";
