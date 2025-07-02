@@ -39,7 +39,7 @@
     signing = {
       signer = "${pkgs.gnupg}/bin/gpg";
       key = "2B59141EA701C49F";
-      format = "opengpg";
+      format = "openpgp";
       signByDefault = true;
     };
     # signing with ssh
@@ -68,8 +68,6 @@
         condition = "gitdir:~/sources/uni-nixos-config";
       }
     ];
-
-    lf.enable = true;
 
     extraConfig = {
       init.defaultBranch = "main";

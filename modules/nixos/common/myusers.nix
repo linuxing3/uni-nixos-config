@@ -66,6 +66,9 @@ in {
       };
 
     # Enable home-manager for our user
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+    home-manager.backupFileExtension = "home-manager.backup";
     home-manager.users = mapListToAttrs config.myusers (name: {
       imports = [(self + /configurations/home/${name}.nix)];
     });

@@ -64,8 +64,6 @@ in {
         ".config/gh"
       ];
       files = [
-        ".git-credentials"
-        ".config/nushell/history.txt"
         ".config/sops/age/keys.txt"
         ".Xdefaults"
         ".Xresources"
