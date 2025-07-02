@@ -1,3 +1,5 @@
+(import /file)
+
 (declare-project
  :name "hey"
  :author "Henrik Lissner <contact@henrik.io>"
@@ -23,7 +25,7 @@
 
 # Ensure Janet development headers are available
 (def janet-dev-path (or (os/getenv "JANET_HEADERS_PATH")
-                        (let [store-path (first (glob "/nix/store/*janet*/include"))]
+                        (let [store-path (first (file/glob "/nix/store/*janet*/include"))]
                           (if store-path store-path "/usr/include/janet"))))
 (unless (and janet-dev-path (os/stat janet-dev-path))
   (eprint "ERROR: Janet development headers not found. Please install 'janet' package with:")
