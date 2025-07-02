@@ -12,10 +12,11 @@
     };
   in
     with builtins;
-    with lib;
-      mkFlake inputs {
-        systems = ["x86_64-linux"];
-        inherit lib;
-        # apps.install = mkApp ../../install.zsh;
-      };
+    with lib; {
+      # mkFlake inputs {
+      #   systems = ["x86_64-linux"];
+      #   inherit lib;
+      # apps.install = mkApp ../../install.zsh;
+      # };
+    };
 }
