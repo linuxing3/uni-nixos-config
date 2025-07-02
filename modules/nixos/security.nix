@@ -74,42 +74,12 @@ in {
   ];
 
   age.secrets = mapListToAttrs ageFiles;
-  # age.secrets."generic" = {
-  #   file = "${mysecrets}/nix-access-tokens.age";
-  #   owner = "linuxing3";
-  # };
 
-  # age.secrets."username" = {
-  #   file = "${mysecrets}/username.age";
+  # Example of how to add specific secrets if needed:
+  # age.secrets."specific-secret" = {
+  #   file = "${mysecrets}/specific-secret.age";
   #   owner = "linuxing3";
   # };
-
-  # age.secrets."fullname" = {
-  #   file = "${mysecrets}/fullname.age";
-  #   owner = "linuxing3";
-  # };
-
-  # age.secrets."cachix-auth-token" = {
-  #   file = "${mysecrets}/cachix-auth-token.age";
-  #   owner = "linuxing3";
-  # };
-  # age.secrets."deepseek-token" = {
-  #   file = "${mysecrets}/deepseek-token.age";
-  #   owner = "linuxing3";
-  # };
-  # age.secrets."gemini-token" = {
-  #   file = "${mysecrets}/gemini-token.age";
-  #   owner = "linuxing3";
-  # };
-
-  environment.sessionVariables = {
-    "DEEPSEEK_API_KEY" = ''
-      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."deepseek-token".path})
-    '';
-    "GEMINI_API_KEY" = ''
-      $(${pkgs.coreutils}/bin/cat ${config.age.secrets."gemini-token".path})
-    '';
-  };
 
   # sops secrets
   sops.defaultSopsFile = "${mysecrets}/password.yaml";
