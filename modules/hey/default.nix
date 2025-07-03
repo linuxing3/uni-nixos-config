@@ -8,7 +8,7 @@
 }:
 with lib;
 with hey.lib; {
-  imports = mapModulesRec' ./modules-extra import;
+  imports = mapModulesRec' ./modules import;
 
   options = with types; {
     modules = {};

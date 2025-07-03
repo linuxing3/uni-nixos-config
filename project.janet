@@ -43,7 +43,7 @@
   # to do it manually.
   (def mode (os/stat *heypath* :mode))
   (unless mode
-    (shell "ln" "-sv" (abspath "lib/hey") *heypath*))
+    (shell "ln" "-sv" (abspath "modules/hey/lib/hey") *heypath*))
   (when (or (not mode) (os/getenv "HEYBUILDDEPS"))
     (shell "jpm" "deps"))
   (shell "jpm" "install"

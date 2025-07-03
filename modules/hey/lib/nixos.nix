@@ -83,10 +83,10 @@ with modules; rec {
             then dir
             else abort "No or invalid dir specified: ${dir}";
           binDir = "${dir}/bin";
-          libDir = "${dir}/lib";
-          configDir = "${dir}/config";
-          modulesDir = "${dir}/modules";
-          themesDir = "${dir}/modules/themes";
+          libDir = "${dir}/modules/hey/lib";
+          configDir = "${dir}/modules/hey/config";
+          modulesDir = "${dir}/modules/hey/modules";
+          themesDir = "${dir}/modules/hey/modules/themes";
           hostDir = "${path}";
         };
         mkModules =
@@ -168,7 +168,8 @@ with modules; rec {
         checks.${system} = withPkgs pkgs checks;
         devShells.${system} = withPkgs pkgs devShells;
         packages.${system} = withPkgs pkgs packages;
-      }) systems;
+      })
+    systems;
   in
     (filterAttrs (n: _:
       !elem n [
@@ -198,7 +199,7 @@ with modules; rec {
       #
       # The magic that allows this lives in mkFlake, but requires --impure
       # mode. Sorry hermetic purists!
-      _heyArgs = args;
+      # _heyArgs = args;
     }
     // (mergeAttrs' perSystem);
 }

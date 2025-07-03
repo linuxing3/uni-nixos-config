@@ -7,7 +7,7 @@ zparseopts -E -F -D -- -flake=flake \
                        -dest=dest || exit 1
 
 flake="${flake[2]:-/home/linuxing3/sources/uni-nixos-config}"
-host="${host[2]:-laptop}"
+host="${host[2]:-office}"
 user="${user[2]:-linuxing3}"
 theme="${theme[2]:-autumnal}"
 
@@ -23,4 +23,5 @@ export HEYENV="{\"user\":\"$user\",\"host\":\"$host\",\"path\":\"${flake}\",\"th
 nixos-rebuild build \
     --impure \
     --show-trace \
+    --verbose \
     --flake "${flake}#${host}"
