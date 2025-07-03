@@ -13,6 +13,8 @@
         name = "nixos-unified-template-shell";
         meta.description = "Shell environment for modifying this Nix configuration";
 
+        HEYENV = "{\"user\":\"linuxing3\",\"host\":\"laptop\",\"path\":\".\",\"theme\":\"autumnal\"}";
+
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
         INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
         C_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;

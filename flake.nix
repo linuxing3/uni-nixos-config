@@ -12,7 +12,6 @@
     nixos-unified.url = "github:srid/nixos-unified";
 
     #flake parts
-
     agenix-shell.url = "github:aciceri/agenix-shell";
     devenv.url = "github:cachix/devenv";
     files.url = "github:mightyiam/files";
