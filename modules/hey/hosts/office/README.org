@@ -1,0 +1,7 @@
+#+TITLE: Laptop
+#+DATE:  July 3, 2025
+
+* Overview
+My daily NixOS driver, for work and play. Dual-boots with Windows (used solely
+for developing and gaming).
+
