@@ -3,8 +3,7 @@
     pkgs,
     config,
     ...
-  }: let
-  in {
+  }: {
     devShells.default =
       pkgs.mkShell
       rec {

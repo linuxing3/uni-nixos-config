@@ -11,6 +11,12 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-unified.url = "github:srid/nixos-unified";
 
+    #flake parts
+
+    agenix-shell.url = "github:aciceri/agenix-shell";
+    devenv.url = "github:cachix/devenv";
+    files.url = "github:mightyiam/files";
+
     # system inputs
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
