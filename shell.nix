@@ -35,8 +35,4 @@ rec {
     janet
     jpm
   ];
-
-  shellHook = ''
-    source ${lib.getExe config.agenix-shell.installationScript}
-  '';
 }
