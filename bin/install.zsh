@@ -4,16 +4,15 @@
 zparseopts -E -F -D -- -flake=flake \
                        -user=user \
                        -host=host \
-                       -dest=dest \
-                       -disk=disk \
-                       -root=root || exit 1
+                       -root=root\
+                       -dest=dest || exit 1
 
-local root="${root[2]:-/mnt}"
-local flake="${flake[2]:-$root/etc/dotfiles}"
-local host="${host[2]:-$HOST}"
-local user="${user[2]:-hlissner}"
-local dest="${dest[2]:-$root/home/$user/.config/dotfiles}"
-local disk="${disk[2]}"
+root="${root[2]:-/mnt/}"
+flake="${flake[2]:-${root}/etc/uni-nixos-config}"
+host="${host[2]:-laptop}"
+user="${user[2]:-linuxing3}"
+theme="${theme[2]:-autumnal}"
+dest="${dest[2]:-$root/home/$user/.config/uni-nixos-config}"
 
 if [[ "$USER" == nixos ]]; then
   >&2 echo "Error: not in the nixos installer"
@@ -23,26 +22,19 @@ elif [[ -z "$host" ]]; then
   exit 2
 fi
 
-set -e
-if [[ ! -d "$flake" ]]; then
-  local url=https://github.com/hlissner/dotfiles
-  [[ "$user" == hlissner ]] && url="git@github.com:hlissner/dotfiles.git"
-  rm -rf "$flake"
-  git clone --recursive "$url" "$flake"
-  chown "$user:users" -R "$flake"
-fi
-
-export HEYENV="{\"user\":\"$user\",\"host\":\"$host\",\"path\":\"${flake#$root}\",\"theme\":\"$THEME\"}"
+export HEYENV="{\"user\":\"$user\",\"host\":\"$host\",\"path\":\"${flake}\",\"theme\":\"${theme}\"}"
 if [[ -n "$disk" ]]; then
   nix run 'github:nix-community/disko/latest#disko-install' -- \
       --impure \
       --show-trace \
+      --no-bootloader \
       --flake "${flake}#${host}" \
       --disk main "${disk}"
 else
   nixos-install \
       --impure \
       --show-trace \
+      --no-bootloader \
       --root "$root" \
       --flake "${flake}#${host}"
 fi

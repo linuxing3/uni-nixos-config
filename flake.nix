@@ -68,17 +68,17 @@
       inherit (nixpkgs) lib;
       pkgs = import nixpkgs {};
     };
-    lib = import ./modules/hey/lib args;
+    heylib = import ./modules/hey/lib args;
   in
     # hey flake
-    lib.mkFlake inputs {
+    heylib.mkFlake inputs {
       systems = ["x86_64-linux"];
-      inherit lib;
-      hosts = lib.mapHosts ./modules/hey/hosts;
+      lib = heylib;
+      hosts = heylib.mapHosts ./modules/hey/hosts;
       modules.default = import ./modules/hey;
-      apps.build = lib.mkApp ./bin/build.zsh;
-      apps.install = lib.mkApp /hey/bin/install.zsh;
-      checks = lib.mapModules ./modules/hey/test import;
+      apps.build = heylib.mkApp ./bin/build.zsh;
+      apps.install = heylib.mkApp /hey/bin/install.zsh;
+      checks = heylib.mapModules ./modules/hey/test import;
     }
     # unified flake
     // inputs.nixos-unified.lib.mkFlake

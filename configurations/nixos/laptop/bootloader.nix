@@ -5,6 +5,11 @@
     useOSProber = true;
     # splashImage = ../../../wallpapers/Grub-SplashImage-Einstein.xpm.gz;
     extraEntries = ''
+      menuentry "[0] Nixos Warbler Slim /tmpfs" --class nixos --unrestricted {
+        search --set=drive1 --fs-uuid 66F6-957D
+        linux ($drive1)/slim-bzImage init=/nix/store/dsy8psmsbjsvnf44pvr35bij2nc1lnb0-nixos-system-laptop-25.05.20250508.dda3dcd/init loglevel=1
+        initrd ($drive1)/slim-initrd
+      }
       menuentry "[1] Nixos Warbler /dev/sdb4" --class nixos --unrestricted {
         search --set=drive1 --fs-uuid 66F6-957D
         linux ($drive1)/luks-extra-bzImage init=/nix/store/hk8q1cibcsgg5l08i4gh2mnp9frpc9xq-nixos-system-ai-25.05.20250508.dda3dcd/init loglevel=4

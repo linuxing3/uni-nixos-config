@@ -6,6 +6,8 @@
 }:
 with lib;
 with builtins; {
+  imports = [./hardware-configuration.nix];
+
   system = "x86_64-linux";
 
   modules = {
@@ -22,33 +24,6 @@ with builtins; {
       ];
     };
 
-    desktop = {
-      hyprland = rec {
-        enable = false;
-      };
-      term.default = "foot";
-      term.foot.enable = false;
-
-      ## Extra
-      apps.rofi.enable = false;
-      apps.spotify.enable = false;
-      apps.thunar.enable = false;
-      apps.steam = {
-        enable = false;
-        libraryDir = "/media/windows/Program Files (x86)/Steam";
-      };
-      apps.godot.enable = false;
-
-      browsers.default = "librewolf";
-      browsers.librewolf.enable = false;
-      media.cad.enable = false;
-      media.daw.enable = false;
-      media.graphics.enable = false;
-      media.music.enable = false;
-      media.video.enable = false;
-      media.video.capture.enable = false;
-      media.pdf.enable = false;
-    };
     dev = {
       cc.enable = true;
     };
@@ -88,72 +63,36 @@ with builtins; {
   };
 
   hardware = {...}: {
-    networking.interfaces.eno1.useDHCP = false;
-
-    # Disable all USB wakeup events to ensure restful sleep. This system has
-    # many peripherals attached to it (shared between Windows and Linux) that
-    # can unpredictably wake it otherwise.
-    systemd.services.fixSuspend = {
-      script = ''
-        for ev in $(grep enabled /proc/acpi/wakeup | cut --delimiter=\  --fields=1); do
-           echo $ev > /proc/acpi/wakeup
-        done
-      '';
-      wantedBy = ["multi-user.target"];
-    };
-
-    # last partition as boot, device = "/dev/sdb2";
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/66F6-957D";
-      fsType = "vfat";
-    };
-
-    # rootb: first partition ext4 as root
-    # equal to `mount -t tmpfs tmpfs /`
-    fileSystems."/" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = ["relatime" "mode=755"];
-    };
-
-    # swap file instead of a particular swapswapDevices
-    fileSystems."/swap" = {
-      device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
-      fsType = "btrfs";
-      options = ["subvol=@swap" "rw"];
-    };
-    # remount swapfile in read-write mode
-    fileSystems."/swap/swapfile" = {
-      # the swapfile is located in /swap subvolume, so we need to mount /swap first.
-      depends = ["/swap"];
-      device = "/swap/swapfile";
-      fsType = "none";
-      options = ["bind" "rw"];
-    };
-    swapDevices = [
-      {device = "/swap/swapfile";}
-      # {device = "/dev/disk/by-uuid/f033c305-e649-4599-aa05-ccf352da4121";}
-    ];
-
-    # persistent
-    fileSystems."/persistent" = {
-      device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
-      fsType = "btrfs";
-      options = ["subvol=@persistent" "noatime" "compress-force=zstd:1"];
-      neededForBoot = true;
-    };
-    # guix
-    fileSystems."/gnu" = {
-      device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
-      fsType = "btrfs";
-      options = ["subvol=@guix" "noatime" "compress-force=zstd:1"];
-    };
-
-    # tmp, cleared at boot
-    fileSystems."/tmp" = {
-      device = "/dev/disk/by-uuid/bc51540f-f085-44a3-ad6c-46bf2e138f6b";
-      fsType = "btrfs";
-      options = ["subvol=@tmp" "noatime" "compress-force=zstd:1"];
+    networking = {
+      hostName = "office";
+      networkmanager.enable = true;
+      interfaces.enp0s31f6.ipv4.addresses = [
+        {
+          address = "10.10.30.110";
+          prefixLength = 24;
+        }
+      ];
+      defaultGateway = "10.10.30.1";
+      nameservers = [
+        "8.8.8.8"
+        "8.8.4.4"
+        "1.1.1.1"
+      ];
+      firewall = {
+        enable = true;
+        allowedTCPPorts = [
+          22
+          80
+          631
+          443
+          59010
+          59011
+        ];
+        allowedUDPPorts = [
+          59010
+          59011
+        ];
+      };
     };
   };
 }
