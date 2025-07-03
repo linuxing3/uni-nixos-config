@@ -26,7 +26,6 @@
 in {
   imports = [
     inputs.agenix-shell.flakeModules.default
-    inputs.devenv.flakeModule
   ];
 
   agenix-shell.identityPaths = [
@@ -46,17 +45,40 @@ in {
     config,
     ...
   }: {
-    devenv.shells = {
-      develop = {
-        languages.c.enable = true;
-        languages.cplusplus.enable = true;
-        languages.zig.enable = true;
-      };
-    };
-
     devShells.default =
-      import ./shell.nix
-      // {
+      pkgs.mkShell
+      rec {
+        buildInputs = with pkgs; [
+          janet
+        ];
+        name = "nixos-unified-template-shell";
+        meta.description = "Shell environment for modifying this Nix configuration";
+
+        HEYENV = "{\"user\":\"linuxing3\",\"host\":\"laptop\",\"path\":\".\",\"theme\":\"autumnal\"}";
+
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+        INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
+        C_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
+        CXX_INCLUDE_PATH = pkgs.lib.makeIncludePath buildInputs;
+
+        JANET_HEADERS_PATH = "${pkgs.janet}/include";
+        JANET_LIB_PATH = "${pkgs.janet}/lib";
+        JANET_TREE = "/home/linuxing3/.local/share/janet/jpm_tree";
+        JANET_PATH = "/home/linuxing3/.local/share/janet/jpm_tree/lib";
+        JANET_BUILDPATH = "/home/linuxing3/.local/share/janet/jpm_tree/build";
+        XDG_BIN_HOME = "/home/linuxing3/.local/bin";
+        XDG_CONFIG_HOME = "/home/linuxing3/.config";
+        XDG_DATA_HOME = "/home/linuxing3/.local/share";
+        XDG_CACHE_HOME = "/home/linuxing3/.local/cache";
+        XDG_STATE_HOME = "/home/linuxing3/.local/state";
+        DOTFILES_HOME = "/home/linuxing3/sources/uni-nixos-config";
+        packages = with pkgs; [
+          just
+          nixd
+          janet
+          jpm
+        ];
+
         shellHook = ''
           source ${lib.getExe config.agenix-shell.installationScript}
         '';

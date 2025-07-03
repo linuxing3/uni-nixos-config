@@ -1,17 +1,15 @@
 {
   pkgs,
-  lib,
-  config,
+  mkShell,
   ...
 }:
-pkgs.mkShell
-rec {
+mkShell rec {
+  name = "hey-shell";
+  meta.description = "Shell environment for hey with janet";
+
   buildInputs = with pkgs; [
     janet
   ];
-  name = "nixos-unified-template-shell";
-  meta.description = "Shell environment for modifying this Nix configuration";
-
   HEYENV = "{\"user\":\"linuxing3\",\"host\":\"laptop\",\"path\":\".\",\"theme\":\"autumnal\"}";
 
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
