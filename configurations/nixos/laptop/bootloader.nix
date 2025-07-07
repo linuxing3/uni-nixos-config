@@ -17,7 +17,7 @@ in {
   boot.loader.grub = {
     enable = true;
     device = "/dev/sdb";
-    useOSProber = true;
+    useOSProber = false;
     extraEntries = ''
       menuentry "[$] NixOS Custom" {
         search --set=drive1 --fs-uuid 66F6-957D
