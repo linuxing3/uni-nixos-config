@@ -24,19 +24,20 @@
     (name: type: type == "regular" && lib.hasSuffix ".age" name)
     (builtins.readDir "${inputs.mysecrets}"));
 in {
-  imports = [
-    inputs.agenix-shell.flakeModules.default
-  ];
+  # setting agenix
+  # imports = [
+  #   inputs.agenix-shell.flakeModules.default
+  # ];
 
-  agenix-shell.identityPaths = [
-    "/home/linuxing3/.ssh/id_ed25519"
-    "/home/linuxing3/.ssh/efwmc"
-    "/home/linuxing3/.ssh/linuxing3"
-    "/home/linuxing3/.ssh/ssh_host_ed25519_key"
-    "/etc/ssh/ssh_host_ed25519_key"
-  ];
+  # agenix-shell.identityPaths = [
+  #   "/home/linuxing3/.ssh/id_ed25519"
+  #   "/home/linuxing3/.ssh/efwmc"
+  #   "/home/linuxing3/.ssh/linuxing3"
+  #   "/home/linuxing3/.ssh/ssh_host_ed25519_key"
+  #   "/etc/ssh/ssh_host_ed25519_key"
+  # ];
 
-  agenix-shell.secrets = mapListToAttrs ageFiles;
+  # agenix-shell.secrets = mapListToAttrs ageFiles;
 
   # settings devShell
 
@@ -51,7 +52,7 @@ in {
         buildInputs = with pkgs; [
           janet
         ];
-        name = "nixos-unified-template-shell";
+        name = "hey-shell";
         meta.description = "Shell environment for modifying this Nix configuration";
 
         HEYENV = "{\"user\":\"linuxing3\",\"host\":\"laptop\",\"path\":\".\",\"theme\":\"autumnal\"}";
@@ -79,9 +80,9 @@ in {
           jpm
         ];
 
-        shellHook = ''
-          source ${lib.getExe config.agenix-shell.installationScript}
-        '';
+        # shellHook = ''
+        #   source ${lib.getExe config.agenix-shell.installationScript}
+        # '';
       };
   };
 }

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   services = {
+    onedrive.enable = true;
     printing.enable = true;
     openssh.enable = true;
     gvfs.enable = true;

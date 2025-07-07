@@ -81,10 +81,10 @@ cryptsetup --help
 cryptsetup luksFormat --type luks2 --cipher aes-xts-plain64 --hash sha512 --iter-time 5000 --key-size 256 --pbkdf argon2id --use-random --verify-passphrase /dev/sdb3
 
 # show status
-cryptsetup luksDump /dev/sdb3
+cryptsetup luksDump /dev/sdb4
 
 # open(unlock) the device with the passphrase you just set
-cryptsetup luksOpen /dev/sdb3 crypted-nixos
+cryptsetup luksOpen /dev/sdb4 crypted-nixos
 
 # show disk status
 lsblk
@@ -94,7 +94,7 @@ Formatting the root partition:
 
 ```bash
 # NOTE: `cat shoukei.md | grep create-btrfs > btrfs.sh` to generate this script
-mkfs.fat -F 32 -n ESP /dev/sdb3  # create-btrfs
+mkfs.fat -F 32 -n ESP /dev/sdb4  # create-btrfs
 # format the root partition with btrfs and label it
 mkfs.btrfs -L crypted-nixos /dev/mapper/crypted-nixos   # create-btrfs
 
@@ -130,7 +130,7 @@ mount -o compress-force=zstd:1,noatime,subvol=@snapshots /dev/mapper/crypted-nix
 # create a swapfile on btrfs file system
 # This command will disable CoW / compression on the swap subvolume and then create a swapfile.
 # because the linux kernel requires that swapfile must not be compressed or have copy-on-write(CoW) enabled.
-btrfs filesystem mkswapfile --size 96g --uuid clear /mnt/swap/swapfile  # mount-1
+btrfs filesystem mkswapfile --size 24g --uuid clear /mnt/swap/swapfile  # mount-1
 
 # check whether the swap subvolume has CoW disabled
 # the output of `lsattr` for the swap subvolume should be:
