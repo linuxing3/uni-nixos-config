@@ -1,9 +1,10 @@
 {
-  pkgs,
   flake,
+  pkgs,
   ...
-}: {
+}: let
   inherit (flake) inputs;
+in {
   imports = [
     inputs.grub2-themes.nixosModules.default
   ];
