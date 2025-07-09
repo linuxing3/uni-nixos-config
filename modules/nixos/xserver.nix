@@ -6,7 +6,7 @@
   services = {
     xserver = {
       enable = true;
-      autorun = false;
+      autorun = true;
       xkb.layout = "us";
       xkb.options = "caps:escape_shifted_capslock";
       desktopManager.runXdgAutostartIfNone = true;
